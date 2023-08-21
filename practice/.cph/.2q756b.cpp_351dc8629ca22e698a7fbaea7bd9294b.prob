@@ -1,1 +1,0 @@
-{"name":"Local: 2q756b","url":"/home/utsav/Desktop/CodeForces/practice/2q756b.cpp","tests":[{"id":1692557632920,"input":"6\n5 5\n10 1\n2 3\n0 0\n17 2\n1000000000 1000000000","output":"2\n1\n1\n0\n2\n500000000"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/utsav/Desktop/CodeForces/practice/2q756b.cpp","group":"local","local":true}
