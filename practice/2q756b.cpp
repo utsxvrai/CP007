@@ -85,7 +85,7 @@ void C_R_7()
         
         teams = max(teams, left + available_teams);
         
-        left++;
+        right++;
     }
 
     cout << left << endl;
