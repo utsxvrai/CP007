@@ -73,7 +73,21 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 void C_R_7()
 {
-    
+  int n; cin>>n;
+    string s;
+    cin>>s;
+    pii ans(0,0);
+
+    for(int i = 0 ; i < n; i++){
+      if(s[i]=='A') ans.first++;
+     else if (s[i] == 'D') ans.second++;
+    }
+
+    if(ans.first>ans.second){
+      cout<<"Anton";
+    }
+    else if(ans.first<ans.second) cout<<"Danik";
+    else cout<<"Friendship";
 
     
     
@@ -82,7 +96,7 @@ signed main()
 {
   ios;
   int t = 1;
-  cin >> t;
+  //cin >> t;
   while (t--)
   {
     C_R_7();

@@ -1,8 +1,8 @@
 /*-----------------------WORK HARD THINK HARD-----------------------*/
 
 /*
-                Codeforces:- utsxvrai
-                Codechef  :- cr7bit
+                Codeforces:- 
+                Codechef  :- 
 */
 
 #include <bits/stdc++.h>

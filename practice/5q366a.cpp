@@ -73,8 +73,19 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 void C_R_7()
 {
-    
+  int n; cin>>n;
+  string s=""; int i=1;
+  if(n==0) cout<<"";
+  while(i<=n){
+    if(s!="") s+=" that ";
 
+    if(i&1) s += "I hate";
+
+    else s+="I love";
+    i++;
+
+  }
+  cout<<s+" it";
     
     
 }
@@ -82,7 +93,7 @@ signed main()
 {
   ios;
   int t = 1;
-  cin >> t;
+  //cin >> t;
   while (t--)
   {
     C_R_7();
