@@ -61,9 +61,15 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 #define imx INT_MAX
 #define ff first
 #define ss second
+#define arrinput(arr,n) for(int i = 0 ; i < n ; i++) cin>>arr[i]
+#define printarr(arr,n) for(int i = 0 ; i < n ; i++) cout<<arr[i]<<" "
+#define loop(i,n) for(int i = 0 ; i < n ; i++)
 
 void C_R_7()
 {
+  
+     
+    
 }
 signed main()
 {
@@ -73,6 +79,7 @@ signed main()
   while (t--)
   {
     C_R_7();
+    
   }
 
   return 0;
