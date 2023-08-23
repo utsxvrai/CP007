@@ -1,8 +1,8 @@
 /*-----------------------WORK HARD THINK HARD-----------------------*/
 
 /*
-                Codeforces:- utsxvrai
-                Codechef  :- cr7bit
+                Codeforces:- 
+                Codechef  :- 
 */
 
 #include <bits/stdc++.h>
@@ -61,32 +61,34 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 #define imx INT_MAX
 #define ff first
 #define ss second
-
-
-
-
-
-
-
-
-
+#define arrinput(arr,n) for(int i = 0 ; i < n ; i++) cin>>arr[i]
+#define printarr(arr,n) for(int i = 0 ; i < n ; i++) cout<<arr[i]<<" "
+#define loop(i,n) for(int i = 0 ; i < n ; i++)
 
 void C_R_7()
 {
   int n; cin>>n;
-  string s=""; int i=1;
-  if(n==0) cout<<"";
-  while(i<=n){
-    if(s!="") s+=" that ";
-
-    if(i&1) s += "I hate";
-
-    else s+="I love";
-    i++;
-
+    string s; cin>>s;
+    vector<string> a(n-1);
+    for(int i = 0 ;  i < n-1 ; i++){
+        a[i] = s.substr(i, 2);; 
+        
+    }
+  
+  int max=-1; int g=-1;
+  loop(i,n-1){
+    int freq=0;
+    loop(j,n-1){
+      if(a[i]==a[j]) freq++;
+    }
+    if(freq>max) {
+      max=freq;
+      g=i;
+    }
   }
-  cout<<s+" it";
-    
+
+  cout<<a[g]<<endl;
+     
     
 }
 signed main()
@@ -97,6 +99,7 @@ signed main()
   while (t--)
   {
     C_R_7();
+    
   }
 
   return 0;
