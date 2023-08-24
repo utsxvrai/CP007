@@ -18,7 +18,6 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 /*------------------------------TYPES------------------------------*/
 #define int long long
-//#define ll long long
 #define pii pair<int, int>
 #define pll pair<long long, long long>
 #define vi vector<int>
@@ -28,7 +27,9 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 #define sc set<char>
 
 /*------------------------------FUNCTIONS------------------------------*/
-
+#define forn(i, n) for (i = 0; i < n; i++)
+#define forse(i, s, e) for (int i = s; i < e; i++)
+#define fores(i, e, s) for (int i = e - 1; i >= s; i--)
 
 #define pb push_back
 #define mp make_pair
@@ -66,25 +67,11 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 void C_R_7()
 {
-    int n; cin>>n;
-    if(n>45){
-      cout<<"-1"<<endl;
-       return;
-    } 
-    int d=0, f=9;
-    vi ans;
-    while(n!=0){
-        if(n>=f){
-            ans.pb(f);
-            n-=f;
-        }
-        f--;
+    string s,t; cin>>s>>t;
 
-    }
-    sort(ans.begin(), ans.end());
-    for(auto j : ans) cout<<j;
-    cout<<endl;
-    return;
+    reverse(s.begin(),s.end());
+    if(s==t) cout<<"YES";
+    else cout<<"NO";
   
      
     
@@ -93,7 +80,7 @@ signed main()
 {
   ios;
   int t = 1;
-  cin >> t;
+  //cin >> t;
   while (t--)
   {
     C_R_7();

@@ -18,17 +18,20 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 /*------------------------------TYPES------------------------------*/
 #define int long long
-//#define ll long long
 #define pii pair<int, int>
 #define pll pair<long long, long long>
 #define vi vector<int>
+#define vs vector<string>
+#define vc vector<char>
 #define vll vector<long long>
 #define mii map<int, int>
 #define si set<int>
 #define sc set<char>
 
 /*------------------------------FUNCTIONS------------------------------*/
-
+#define forn(i, n) for (i = 0; i < n; i++)
+#define forse(i, s, e) for (int i = s; i < e; i++)
+#define fores(i, e, s) for (int i = e - 1; i >= s; i--)
 
 #define pb push_back
 #define mp make_pair
@@ -64,29 +67,27 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 #define printarr(arr,n) for(int i = 0 ; i < n ; i++) cout<<arr[i]<<" "
 #define loop(i,n) for(int i = 0 ; i < n ; i++)
 
+// string checkVowel(string s, int pos k){
+//     if(s[k] == 'A' || s[k]=='E' || s[k]=='I' || s[k]=='O' || s[k]=='U' || s[k]=='Y'
+//             s[k]=='a' || s[k]=='e' || s[k]=='i' || s[k]=='o' || s[k]=='u' || s[k]=='y'){
+//              return "YES";
+//          }
+//      else return "NO";
+// }
+
+
+
+
+
+
 void C_R_7()
 {
-    int n; cin>>n;
-    if(n>45){
-      cout<<"-1"<<endl;
-       return;
-    } 
-    int d=0, f=9;
-    vi ans;
-    while(n!=0){
-        if(n>=f){
-            ans.pb(f);
-            n-=f;
-        }
-        f--;
+    string s;
+    cin>>s;
+    int n = s.size();
 
-    }
-    sort(ans.begin(), ans.end());
-    for(auto j : ans) cout<<j;
-    cout<<endl;
-    return;
-  
-     
+    if(n>10) cout<<s[0]<<n-2<<s[n-1]<<endl;
+    else cout<<s<<endl;
     
 }
 signed main()
