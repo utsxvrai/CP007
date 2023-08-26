@@ -1,7 +1,7 @@
 /*-----------------------WORK HARD THINK HARD-----------------------*/
 
 /*
-                Codeforces:- cr7bit
+                Codeforces:- 
                 Codechef  :- 
 */
 
@@ -82,33 +82,17 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 void C_R_7()
 {
-    int n,m; cin>>n>>m;
-    vector<vector<char>> s(n, vector<char>(m));
-    for(int i = 0 ; i < n ; i++){
-        for(int j = 0; j < m ; j++){
-            cin>>s[i][j];
-        }
+    int n;
+    cin>>n;
+    vi arr(n);
+    inputarr(arr,n);
+    
+    vi siu(n);
+    
+    loop(i,n){
+        siu[arr[i]-1] = i+1; 
     }
-    string name = "vika";
-    int k=0;
-    vector<vector<char>> std(m, vector<char>(n));
-    for(int i = 0 ; i < n ; i++){
-        for(int j = 0; j < m ; j++){
-            std[j][i]=s[i][j];
-        }
-    }
-     for(int i = 0 ; i < m ; i++){
-        for(int j = 0; j < n ; j++){
-            if(name[k]==std[i][j]){
-                k++;
-                break;
-            }
-        }
-    }
-    if(k==4) cout<<"YES"<<endl;
-    else cout<<"NO"<<endl;
-
-
+    for(auto g : siu) cout<<g<<" ";
     
     
 }
@@ -116,7 +100,7 @@ signed main()
 {
   ios;
   int t = 1;
-  cin >> t;
+  //cin >> t;
   while (t--)
   {
     C_R_7();

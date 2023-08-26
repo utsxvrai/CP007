@@ -1,8 +1,8 @@
 /*-----------------------WORK HARD THINK HARD-----------------------*/
 
 /*
-                Codeforces:- utsxvrai
-                Codechef  :- cr7bit
+                Codeforces:- 
+                Codechef  :- 
 */
 
 #include <bits/stdc++.h>
@@ -17,10 +17,12 @@ using namespace __gnu_pbds;
 typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> pbds;
 
 /*------------------------------TYPES------------------------------*/
-#define ll long long
+#define int long long
 #define pii pair<int, int>
 #define pll pair<long long, long long>
 #define vi vector<int>
+#define vs vector<string>
+#define vc vector<char>
 #define vll vector<long long>
 #define mii map<int, int>
 #define si set<int>
@@ -61,37 +63,59 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 #define imx INT_MAX
 #define ff first
 #define ss second
+#define inputarr(arr,n) for(int i = 0 ; i < n ; i++) cin>>arr[i]
+#define printarr(arr,n) for(int i = 0 ; i < n ; i++) cout<<arr[i]<<" "
+#define loop(i,n) for(int i = 0 ; i < n ; i++)
 
-const int MO = 998244353;
+// string checkVowel(string s, int pos ){
+//     if(s[k] == 'A' || s[k]=='E' || s[k]=='I' || s[k]=='O' || s[k]=='U' || s[k]=='Y'
+//          || s[k]=='a' || s[k]=='e' || s[k]=='i' || s[k]=='o' || s[k]=='u' || s[k]=='y'){
+//              return "YES";
+//          }
+//      else return "NO";
+// }
 
-int mod_pow(int base, int exp)
-{
-    int result = 1;
-    while (exp)
-    {
-        if (exp & 1)
-        {
-            result = (1LL * result * base) % MOD;
-        }
-        base = (1LL * base * base) % MOD;
-        exp >>= 1;
-    }
-    return result;
-}
+
+
+
+
 
 void C_R_7()
 {
-    cout<<"cpde i srunning"<<endl;
+    int n; cin>>n;
+    vi brr(n);
+    inputarr(brr,n);
+
+    vi arr;
+    arr.pb(brr[0]);
+
+    for(int i = 1 ; i < n ;i++)
+
+    if(brr[i-1] > brr[i]){
+        arr.pb(1);
+        arr.pb(brr[i]);
+
+    }
+    else{
+        arr.pb(brr[i]);
+    }
+    cout<<arr.size()<<endl;
+    for(auto j : arr) cout<<j<<" ";
+    cout<<endl;
+
+    
+    
 }
 signed main()
 {
-    ios;
-    ll t = 1;
-    cin >> t;
-    while (t--)
-    {
-        C_R_7();
-    }
+  ios;
+  int t = 1;
+  cin >> t;
+  while (t--)
+  {
+    C_R_7();
+    
+  }
 
-    return 0;
+  return 0;
 }

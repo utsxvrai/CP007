@@ -1,7 +1,7 @@
 /*-----------------------WORK HARD THINK HARD-----------------------*/
 
 /*
-                Codeforces:- cr7bit
+                Codeforces:- 
                 Codechef  :- 
 */
 
@@ -80,35 +80,25 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 
 
-void C_R_7()
-{
-    int n,m; cin>>n>>m;
-    vector<vector<char>> s(n, vector<char>(m));
-    for(int i = 0 ; i < n ; i++){
-        for(int j = 0; j < m ; j++){
-            cin>>s[i][j];
-        }
-    }
-    string name = "vika";
-    int k=0;
-    vector<vector<char>> std(m, vector<char>(n));
-    for(int i = 0 ; i < n ; i++){
-        for(int j = 0; j < m ; j++){
-            std[j][i]=s[i][j];
-        }
-    }
-     for(int i = 0 ; i < m ; i++){
-        for(int j = 0; j < n ; j++){
-            if(name[k]==std[i][j]){
-                k++;
-                break;
-            }
-        }
-    }
-    if(k==4) cout<<"YES"<<endl;
-    else cout<<"NO"<<endl;
+void C_R_7(){
+    string s,t; cin>>s>>t;
 
+    for(int i = 0 ; i < s.size() ; i++){
+        if(s[i]>='A'&& s[i]<='Z'){
+            s[i] = s[i] - 'A' + 97;
+        }
+        if(t[i]>='A'&& t[i]<='Z'){
+            t[i] = t[i] - 'A' + 97;
+        }
+    }
+//cout<<s<<" "<<t;
+    loop(i,s.size()){
+        if(s[i]>t[i]) { cout<<"1"<<endl; return; }
+        if(s[i]<t[i]) { cout<<"-1"<<endl; return ; }
 
+    }
+    
+    cout<<"0"<<endl;
     
     
 }
@@ -116,7 +106,7 @@ signed main()
 {
   ios;
   int t = 1;
-  cin >> t;
+  //cin >> t;
   while (t--)
   {
     C_R_7();

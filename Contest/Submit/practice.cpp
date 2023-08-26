@@ -1,20 +1,18 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
-int main()
-{
+int main() {
     int t;
     cin >> t;
-    while (t--)
-    {
-        int y;
-        cin >> y;
-        if (y == 0)
-            cout << "1" << endl;
-        else
-        {
-            cout << 3 * y << endl;
-        }
+
+    while (t--) {
+        long long d;
+        cin >> d;
+        
+
+        
     }
+
     return 0;
 }

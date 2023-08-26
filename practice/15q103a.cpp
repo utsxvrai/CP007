@@ -1,7 +1,7 @@
 /*-----------------------WORK HARD THINK HARD-----------------------*/
 
 /*
-                Codeforces:- cr7bit
+                Codeforces:- 
                 Codechef  :- 
 */
 
@@ -65,7 +65,7 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 #define ss second
 #define inputarr(arr,n) for(int i = 0 ; i < n ; i++) cin>>arr[i]
 #define printarr(arr,n) for(int i = 0 ; i < n ; i++) cout<<arr[i]<<" "
-#define loop(i,n) for(int i = 0 ; i < n ; i++)
+#define loop(i,n) for(long long i = 0 ; i < n ; i++)
 
 // string checkVowel(string s, int pos ){
 //     if(s[k] == 'A' || s[k]=='E' || s[k]=='I' || s[k]=='O' || s[k]=='U' || s[k]=='Y'
@@ -82,41 +82,40 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 void C_R_7()
 {
-    int n,m; cin>>n>>m;
-    vector<vector<char>> s(n, vector<char>(m));
-    for(int i = 0 ; i < n ; i++){
-        for(int j = 0; j < m ; j++){
-            cin>>s[i][j];
-        }
-    }
-    string name = "vika";
-    int k=0;
-    vector<vector<char>> std(m, vector<char>(n));
-    for(int i = 0 ; i < n ; i++){
-        for(int j = 0; j < m ; j++){
-            std[j][i]=s[i][j];
-        }
-    }
-     for(int i = 0 ; i < m ; i++){
-        for(int j = 0; j < n ; j++){
-            if(name[k]==std[i][j]){
-                k++;
-                break;
+    int n; cin>>n;
+    vi arr(n);
+    inputarr(arr,n);
+
+    int maxEl = INT_MIN;
+    
+    int c=0, d=0;
+        loop(j,n){
+            if(maxEl<arr[j]){
+                c=j;
+                maxEl=arr[j];
             }
         }
-    }
-    if(k==4) cout<<"YES"<<endl;
-    else cout<<"NO"<<endl;
-
-
+        //cout<<c<<endl;
+        reverse(arr.begin(), arr.end());
+                
+        int minEl = arr[0];
+        loop(j,n){
+            if(minEl>arr[j]){
+                d=j;
+                maxEl=arr[j];
+            }
+        }
+    
+    cout<<c+d<<endl;
     
     
+     
 }
 signed main()
 {
   ios;
   int t = 1;
-  cin >> t;
+  //cin >> t;
   while (t--)
   {
     C_R_7();

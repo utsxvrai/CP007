@@ -62,32 +62,22 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 #define ff first
 #define ss second
 
-void C_R_7(int n, int ans)
+void C_R_7(int n)
 {
 
-        int c = 1;
-    for (int i = 0; i < N; i++)
-    {
-        for (int j = 0; j <= i; j++)
-        {
-            rm[c][0] = i;
-            rm[c][1] = j;
-            dp[i][j] = c * c;
-            if (i > 0)
-            {
-                dp[i][j] += dp[i - 1][j];
-            }
-            if (j > 0)
-            {
-                dp[i][j] += dp[i - 1][j - 1];
-            }
-            if (i > 1)
-            {
-                dp[i][j] -= dp[i - 2][j - 1];
-            }
-            c++;
+    if(n==1)cout<<2<<endl;
+        else{
+            int f = sqrt(2 * n) - 3;
+        
+        while (f * (f + 1) / 2 <= n) {
+            f++;
         }
-    }
+        
+        int b = f * (3 - f);
+
+        cout <<b/ 2 + n<<endl;
+
+        }
 }
 signed main()
 {
@@ -100,8 +90,8 @@ signed main()
         long long n;
         cin >> n;
 
-        long long ans = 0;
-        C_R_7(n, ans);
+        
+        C_R_7(n);
         
     }
 

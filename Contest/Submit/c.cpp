@@ -1,8 +1,8 @@
 /*-----------------------WORK HARD THINK HARD-----------------------*/
 
 /*
-                Codeforces:- utsxvrai
-                Codechef  :- cr7bit
+                Codeforces:- 
+                Codechef  :- 
 */
 
 #include <bits/stdc++.h>
@@ -21,6 +21,8 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 #define pii pair<int, int>
 #define pll pair<long long, long long>
 #define vi vector<int>
+#define vs vector<string>
+#define vc vector<char>
 #define vll vector<long long>
 #define mii map<int, int>
 #define si set<int>
@@ -61,120 +63,69 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 #define imx INT_MAX
 #define ff first
 #define ss second
+#define inputarr(arr,n) for(int i = 0 ; i < n ; i++) cin>>arr[i]
+#define printarr(arr,n) for(int i = 0 ; i < n ; i++) cout<<arr[i]<<" "
+#define loop(i,n) for(int i = 0 ; i < n ; i++)
 
-const int MO = 998244353;
+// string checkVowel(string s, int pos ){
+//     if(s[k] == 'A' || s[k]=='E' || s[k]=='I' || s[k]=='O' || s[k]=='U' || s[k]=='Y'
+//          || s[k]=='a' || s[k]=='e' || s[k]=='i' || s[k]=='o' || s[k]=='u' || s[k]=='y'){
+//              return "YES";
+//          }
+//      else return "NO";
+// }
 
-int mod_pow(int base, int exp)
+
+
+
+
+
+void C_R_7()
 {
-    int result = 1;
-    while (exp)
-    {
-        if (exp & 1)
-        {
-            result = (1LL * result * base) % MOD;
+    int n; cin>>n;
+
+    vi siu(n);
+    inputarr(siu,n);
+    int bb = *max_element(siu.begin(), siu.end());
+    
+    if (bb > n) cout << "NO" << endl;
+    else{
+
+        vi mes(n + 1, 0);
+        loop(i,n) {
+            mes[0]++;
+            mes[siu[i]]--;
         }
-        base = (1LL * base * base) % MOD;
-        exp >>= 1;
-    }
-    return result;
-}
 
-const int N = 1e6 + 5;
-int siu[N], mes[N];
-
-int kiki(int v)
-{
-    if (v == siu[v])
-    {
-        return v;
-    }
-    return siu[v] = kiki(siu[v]);
-}
-
-void gigi(int x, int y)
-{
-    x = kiki(x);
-    y = kiki(y);
-    if (x != y)
-    {
-        if (mes[x] < mes[y])
-        {
-            swap(x, y);
+        int g = 0;
+       loop(i,n) {
+            g += mes[i];
+            mes[i] = g;
         }
-        siu[y] = x;
-        mes[x] += mes[y];
-    }
-}
 
-void C_R_7(int n, int m )
-{
-    vector<vi> a(n, vi(m));
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-        {
-            cin >> a[i][j];
-        }
-    }
-
-    for (int i = 0; i < n * m; i++)
-    {
-        siu[i] = i;
-        mes[i] = 1;
-    }
-    vector<pair<int, int>> juu{{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
-
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-        {
-            if (a[i][j] == 0)
-            {
-                continue;
-            }
-            for (auto d : juu)
-            {
-                int x = i + d.first;
-                int y = j + d.second;
-                if (x >= 0 && x < n && y >= 0 && y < m && a[x][y] != 0)
-                {
-                    gigi(i * m + j, x * m + y);
-                }
+        int ok = 1;
+        loop(i,n) {
+            if (mes[i] != siu[i]) {
+                ok = 0;
+                break;
             }
         }
-    }
 
-    map<int, int> mp;
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-        {
-            if (a[i][j] == 0)
-            {
-                continue;
-            }
-            mp[kiki(i * m + j)] += a[i][j];
-        }
+        if(ok) cout<<"YES"<<endl;
+        else cout<<"No"<<endl;
     }
-
-    int ron = mp.empty() ? 0 : max_element(mp.begin(), mp.end(), [](const pair<int, int> &a, const pair<int, int> &b)
-    { return a.second < b.second; })
-    ->second;
-    cout << ron << endl;
 }
-
+    
 signed main()
 {
-    ios;
-    int t = 1;
-    cin >> t;
-    while (t--)
-    {
-        int n, m;
-        cin >> n >> m;
-        int ans = INT_MAX;
-        C_R_7(n,m);
-    }
+  ios;
+  int t = 1;
+  cin >> t;
+  while (t--)
+  {
+    C_R_7();
+    
+  }
 
-    return 0;
+  return 0;
 }
