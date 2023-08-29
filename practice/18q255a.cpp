@@ -1,4 +1,4 @@
-/*-----------------------WORK HARD THINK HARD-----------------------*/
+ /*-----------------------WORK HARD THINK HARD-----------------------*/
 
 /*
                 Codeforces:- 
@@ -65,7 +65,7 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 #define ss second
 #define inputarr(arr,n) for(int i = 0 ; i < n ; i++) cin>>arr[i]
 #define printarr(arr,n) for(int i = 0 ; i < n ; i++) cout<<arr[i]<<" "
-#define loop(i,n) for(long long i = 0 ; i < n ; i++)
+#define loop(i,n) for(int i = 0 ; i < n ; i++)
 
 // string checkVowel(string s, int pos ){
 //     if(s[k] == 'A' || s[k]=='E' || s[k]=='I' || s[k]=='O' || s[k]=='U' || s[k]=='Y'
@@ -74,6 +74,19 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 //          }
 //      else return "NO";
 // }
+int findMaxIndex(vi arr, int size) {
+    int maxIndex = 0;
+    int maxValue = INT_MIN;
+
+    for (int i = 0; i < size; i++) {
+        if (arr[i] > maxValue) {
+            maxValue = arr[i];
+            maxIndex = i;
+        }
+    }
+
+    return maxIndex;
+}
 
 
 
@@ -83,28 +96,29 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 void C_R_7()
 {
     int n; cin>>n;
-    vi arr(n);
+    int arr[n];
     inputarr(arr,n);
 
-    int maxindex = -1;
-    int minindex = -1;
-    int maxvalue = 0;
-    int minvalue = 1000;
-        loop(i,n){
-            if(arr[i] > maxvalue){
-                maxvalue = arr[i];
-                maxindex = i;
-            }
-            if(arr[i] <= minvalue){
-                minvalue = arr[i];
-                minindex = i;
-            }
+    vi ans(3,0);
+    loop(i,n){
+        if(i%3==0){
+            ans[0]+=arr[i];
         }
-        if(maxindex> minindex) cout<<(maxindex-1)+(n-minindex-1);
-        else cout<<(maxindex-1)+(n-minindex);
+        if(i%3==1){
+            ans[1]+=arr[i];
+        }
+        if(i%3==2){
+            ans[2]+=arr[i];
+        }
+    }
+    int mx = findMaxIndex(ans,3);
+    if(mx==0) cout<<"chest";
+    else if(mx==1 ) cout<<"biceps";
+    else cout<<"back";
+    
+
     
     
-     
 }
 signed main()
 {

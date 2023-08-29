@@ -1,4 +1,5 @@
-/*-----------------------WORK HARD THINK HARD-----------------------*/
+
+    /*-----------------------WORK HARD THINK HARD-----------------------*/
 
 /*
                 Codeforces:- 
@@ -82,27 +83,13 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 void C_R_7()
 {
-    int n; cin>>n;
-    vi arr(n);
-    inputarr(arr,n);
+    int n,k,l,c,p,d,nl,np;
+    cin>>n>>k>>l>>c>>d>>p>>nl>>np;
 
-    int maxindex = -1;
-    int minindex = -1;
-    int maxvalue = 0;
-    int minvalue = 1000;
-        loop(i,n){
-            if(arr[i] > maxvalue){
-                maxvalue = arr[i];
-                maxindex = i;
-            }
-            if(arr[i] <= minvalue){
-                minvalue = arr[i];
-                minindex = i;
-            }
-        }
-        if(maxindex> minindex) cout<<(maxindex-1)+(n-minindex-1);
-        else cout<<(maxindex-1)+(n-minindex);
-    
+    int p1 = k*l;
+    int p2 = c*d;
+
+    cout<<min(min(p1 / nl, p2), p / np)/n;
     
      
 }

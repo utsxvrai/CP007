@@ -1,4 +1,4 @@
-/*-----------------------WORK HARD THINK HARD-----------------------*/
+ /*-----------------------WORK HARD THINK HARD-----------------------*/
 
 /*
                 Codeforces:- 
@@ -65,7 +65,7 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 #define ss second
 #define inputarr(arr,n) for(int i = 0 ; i < n ; i++) cin>>arr[i]
 #define printarr(arr,n) for(int i = 0 ; i < n ; i++) cout<<arr[i]<<" "
-#define loop(i,n) for(long long i = 0 ; i < n ; i++)
+#define loop(i,n) for(int i = 0 ; i < n ; i++)
 
 // string checkVowel(string s, int pos ){
 //     if(s[k] == 'A' || s[k]=='E' || s[k]=='I' || s[k]=='O' || s[k]=='U' || s[k]=='Y'
@@ -83,28 +83,18 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 void C_R_7()
 {
     int n; cin>>n;
-    vi arr(n);
-    inputarr(arr,n);
 
-    int maxindex = -1;
-    int minindex = -1;
-    int maxvalue = 0;
-    int minvalue = 1000;
-        loop(i,n){
-            if(arr[i] > maxvalue){
-                maxvalue = arr[i];
-                maxindex = i;
-            }
-            if(arr[i] <= minvalue){
-                minvalue = arr[i];
-                minindex = i;
-            }
-        }
-        if(maxindex> minindex) cout<<(maxindex-1)+(n-minindex-1);
-        else cout<<(maxindex-1)+(n-minindex);
+    if(n%2==1) cout<<"-1";
+    else{int arr[n];
+    loop(i,n) arr[i]=i+1;
+    
+    for(int i = 0 ; i < n ;i+=2){
+        swap(arr[i],arr[i+1]);
+    }
+    printarr(arr,n);
+    }
     
     
-     
 }
 signed main()
 {
