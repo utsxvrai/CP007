@@ -1,0 +1,1 @@
+{"name":"Local: 36q1234a","url":"/home/utsav/Desktop/CodeForces/practice/36q1234a.cpp","tests":[{"id":1693609689117,"input":"3\n5\n1 2 3 4 5\n3\n1 2 2\n4\n1 1 1 1","output":"3\n2\n1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/utsav/Desktop/CodeForces/practice/36q1234a.cpp","group":"local","local":true}

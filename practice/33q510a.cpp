@@ -21,8 +21,10 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 #define pii pair<int, int>
 #define pll pair<long long, long long>
 #define vi vector<int>
+#define vii vector<vector<int>>
 #define vs vector<string>
 #define vc vector<char>
+#define vcc vector<vector<char>>
 #define vll vector<long long>
 #define mii map<int, int>
 #define si set<int>
@@ -80,27 +82,37 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 
 
-void C_R_7()
-{
-    int n; cin>>n;
-    int p; cin>>p; int arrx[p]; inputarr(arrx,p);
-    int q; cin>>q; int arry[q]; inputarr(arry,q);
+void C_R_7(){
+    int n,m;
+    cin>>n>>m;
 
-    si siu;
+    int oddness=0;
+for(int i=0;i<n;i++){
+	if(i%2==0){
 
-    loop(i,p){
-        siu.insert(arrx[i]);
+	for(int j=0;j<m;j++){
+		cout<<"#";}
+	}
+		else {
+			++oddness;
+			for(int j=0;j<m;j++){
+					if(oddness%2==1&&j==m-1){
+						cout<<"#";
+					}
+					else if(oddness%2==0&&j==0){
+						cout<<"#";
+
+					}
+					else {
+						cout<<".";
+					}
+			}
+		}
+	cout<<endl;
+
+
+	
     }
-    loop(i,q){
-        siu.insert(arry[i]);
-    }
-
-    if(siu.size()<n || siu.size()>n) cout<<"Oh, my keyboard!";
-    else cout<<"I become the guy.";
-
-
-
-    
     
 }
 signed main()

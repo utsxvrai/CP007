@@ -80,25 +80,16 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 
 
-void C_R_7()
-{
+void C_R_7(){
     int n; cin>>n;
-    int p; cin>>p; int arrx[p]; inputarr(arrx,p);
-    int q; cin>>q; int arry[q]; inputarr(arry,q);
-
-    si siu;
-
-    loop(i,p){
-        siu.insert(arrx[i]);
+    int arr[n];
+    int s(0);
+    loop(i,n){
+        cin>>arr[i];
+        s+=arr[i];
     }
-    loop(i,q){
-        siu.insert(arry[i]);
-    }
-
-    if(siu.size()<n || siu.size()>n) cout<<"Oh, my keyboard!";
-    else cout<<"I become the guy.";
-
-
+    if(s%n==0) cout<<s/n<<endl;
+    else cout<<s/n+1<<endl;
 
     
     
@@ -107,7 +98,7 @@ signed main()
 {
   ios;
   int t = 1;
-  //cin >> t;
+  cin >> t;
   while (t--)
   {
     C_R_7();

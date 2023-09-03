@@ -80,8 +80,10 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 
 
-void C_R_7()
-{
+void C_R_7(){
+  int n; cin>>n;
+  vi arr(n);
+  inputarr(arr,n);
     
     
 }

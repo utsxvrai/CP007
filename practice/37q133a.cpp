@@ -80,27 +80,19 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 
 
-void C_R_7()
-{
-    int n; cin>>n;
-    int p; cin>>p; int arrx[p]; inputarr(arrx,p);
-    int q; cin>>q; int arry[q]; inputarr(arry,q);
+void C_R_7(){
+    string s;
+    getline(cin,s);
+    bool flag = false;
 
-    si siu;
-
-    loop(i,p){
-        siu.insert(arrx[i]);
+    loop(i,s.size()){
+        if(s[i]=='H' || s[i]=='Q'  || s[i]=='9'){
+            flag=true;
+            break;
+        }
     }
-    loop(i,q){
-        siu.insert(arry[i]);
-    }
-
-    if(siu.size()<n || siu.size()>n) cout<<"Oh, my keyboard!";
-    else cout<<"I become the guy.";
-
-
-
-    
+    if(flag) cout<<"YES"<<endl;
+    else cout<<"NO"<<endl;    
     
 }
 signed main()
