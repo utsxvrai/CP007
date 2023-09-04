@@ -81,26 +81,18 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 
 void C_R_7(){
-    int n; cin>>n;
-    vi arr(n);
-    inputarr(arr,n);
-    int sum=0;
-    loop(i,n){
-        sum+=arr[i];
-    }
-     sort(arr.begin(), arr.end());
-     int c=0;
-     int d=0;
+   string s; cin>>s;
+   
+   string sub = "WUB";
+   
+   size_t pos = s.find(sub);
+   while(pos != string::npos){
+       s.replace(pos, sub.length(), " ");
+        pos = s.find(sub);
+   }
+   
+   cout<<s;
 
-    for(int i = n-1 ; i >=0 ; i--){
-        d = d + arr[i];
-        sum = sum - arr[i];
-        if(d<=sum) c++;
-
-        
-    }
-    cout<<c+1<<endl;
-    
     
 }
 signed main()
@@ -108,7 +100,8 @@ signed main()
   ios;
   int t = 1;
   //cin >> t;
-  while (t--){
+  while (t--)
+  {
     C_R_7();
     
   }
