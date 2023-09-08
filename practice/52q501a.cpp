@@ -1,7 +1,7 @@
 /*-----------------------WORK HARD THINK HARD-----------------------*/
 
 /*
-                Codeforces:- cr7bit
+                Codeforces:- 
                 Codechef  :- 
 */
 
@@ -76,26 +76,27 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 // }
 
 
+int x(int n){
+    return 30*n / 10;
+}
+int y(int n , int t){
+    return n - n*t/250;
+}
 
 
 
+void C_R_7(){
+  int a,b,c,d;
+  cin>>a>>b>>c>>d;
 
-void C_R_7()
-{
+  int m = max(x(a), y(a,c));
+  int v = max(x(b), y(b,d));
 
-    int a,b,c;
-    cin>>a>>b>>c;
-    int maxx = max(a,b);
-    float h =(a+b)/2.0;
-    int cn=0;
-    while(maxx>h){
-        maxx -= c;
-        cn++;
-    }
-    cout<<cn<<endl;
-    
+  if(m>v) cout<<"Misha";
+  else if(m<v) cout<<"Vasya";
+  else cout<<"Tie";
 
-
+  
     
     
 }
@@ -103,7 +104,7 @@ signed main()
 {
   ios;
   int t = 1;
-  cin >> t;
+  //cin >> t;
   while (t--)
   {
     C_R_7();

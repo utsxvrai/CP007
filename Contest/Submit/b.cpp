@@ -80,32 +80,29 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 
 
-void C_R_7()
+int C_R_7(int n)
 {
-    int n; cin>>n;
-    vi brr(n);
-    inputarr(brr,n);
+    
+        
+        int siu[n], mes[n], dsi=INT_MAX;
+        loop(i,n){
+            cin>>siu[i]>>mes[i];
+        }
+        loop(i,n){
+            if(mes[i]>=3)
+            {
+                dsi = min(dsi, siu[i] + ((mes[i] % 2 == 1) ? (mes[i] / 2) : (mes[i] / 2 - 1)));
 
-    vi arr;
-    arr.pb(brr[0]);
-
-    for(int i = 1 ; i < n ;i++)
-
-    if(brr[i-1] > brr[i]){
-        arr.pb(1);
-        arr.pb(brr[i]);
-
+            }
+            else
+                dsi=min(dsi, siu[i]);
+        }
+        return dsi;
     }
-    else{
-        arr.pb(brr[i]);
-    }
-    cout<<arr.size()<<endl;
-    for(auto j : arr) cout<<j<<" ";
-    cout<<endl;
 
     
     
-}
+
 signed main()
 {
   ios;
@@ -113,7 +110,8 @@ signed main()
   cin >> t;
   while (t--)
   {
-    C_R_7();
+    int n; cin>>n;
+    cout<<C_R_7(n)<<endl;
     
   }
 

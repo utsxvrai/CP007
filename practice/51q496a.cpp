@@ -85,10 +85,11 @@ void C_R_7(){
     cin>>n;
     vi arr(n);
     inputarr(arr,n);
-    int d = INT_MIN;
+   
     int ans = INT_MAX ; 
 
     for(int j = 1 ; j < n-1 ; j++){
+         int d = INT_MIN;
         for(int i = 0 ; i < n-1 ; i++){
             int g;
             if(i+1==j) {
@@ -109,12 +110,14 @@ void C_R_7(){
             //cout<<g<<" ";
 
             d= max(d,g);
+            //cout<<d<<endl;
    
         }
         //cout<<endl;
         ans = min(ans,d);
+        //cout<<ans<<endl;
     }
-   cout<<ans;
+cout<<ans;
   
     
     

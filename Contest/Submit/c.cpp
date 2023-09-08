@@ -76,45 +76,51 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 // }
 
 
-
+bool coprime(int a, int b) {
+      
+    if ( gcd(a, b) == 1)
+        return 1;
+    else
+        return 0;     
+}
 
 
 
 void C_R_7()
 {
-    int n; cin>>n;
+    int l, r;
+       cin>>l>>r;
 
-    vi siu(n);
-    inputarr(siu,n);
-    int bb = *max_element(siu.begin(), siu.end());
-    
-    if (bb > n) cout << "NO" << endl;
-    else{
+       int fe = -1;
 
-        vi mes(n + 1, 0);
-        loop(i,n) {
-            mes[0]++;
-            mes[siu[i]]--;
+       for(int i=l ; i<=r;i++){
+        if(i%2==0 && i!=2){
+            fe = i;
+            break;
         }
+       }
 
-        int g = 0;
-       loop(i,n) {
-            g += mes[i];
-            mes[i] = g;
+       if(fe!=-1){
+        cout<<fe/2<<" "<<fe/2<<endl; return;
+        
+       }
+
+       int siu = 0;
+
+       for(int i=2; i<=sqrt(r) ; i++){
+        if(gcd(i, r-i)!=1){
+            cout<<i<<" "<<r-i<<endl;
+            siu = 1;
+            break;
         }
+       }
 
-        int ok = 1;
-        loop(i,n) {
-            if (mes[i] != siu[i]) {
-                ok = 0;
-                break;
-            }
-        }
+       if(!siu){
+        cout<<-1<<endl;
+       }
 
-        if(ok) cout<<"YES"<<endl;
-        else cout<<"No"<<endl;
     }
-}
+
     
 signed main()
 {
