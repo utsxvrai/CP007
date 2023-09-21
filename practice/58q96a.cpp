@@ -76,49 +76,43 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 // }
 
 
-int x(int n){
-    return 30*n / 10;
-}
-int y(int n , int t){
-    return n - n*t/250;
-}
+
 
 
 
 void C_R_7(){
-  int a, b, c, d;
-    cin >> a >> b >> c >> d;
+  string s;
+    cin>>s;
+    int c(0), d(0);
+    for(int i = 0 ; i < s.size() ; i++){
+        if(s[i]=='0'){
+            c++;
+            d=0;
+        }
+        else {
+            d++;
+            c=0;
+        }
+        if(d==7 || c==7){
+            return "YES";
 
-    int mishaScore = 3 * a / 10;
-    if (a - a * c / 250 > mishaScore) {
-        mishaScore = a - a * c / 250;
+        }
     }
+    return "NO";
 
-    int vasyaScore = 3 * b / 10;
-    if (b - b * d / 250 > vasyaScore) {
-        vasyaScore = b - b * d / 250;
-    }
-
-    if (mishaScore < vasyaScore) {
-        cout << "Vasya" << endl;
-    } else if (mishaScore > vasyaScore) {
-        cout << "Misha" << endl;
-    } else if (mishaScore == vasyaScore) {
-        cout << "Tie" << endl;
-    }
-
-  
     
     
 }
 signed main()
 {
   ios;
+  //freopen ("input.txt","r",stdin);
+  //freopen ("output.txt","w",stdout);
   int t = 1;
   //cin >> t;
   while (t--)
   {
-    C_R_7();
+    cout<<C_R_7();
     
   }
 
