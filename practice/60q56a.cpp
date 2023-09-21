@@ -80,39 +80,50 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 
 
-  string C_R_7(){
-  string s;
-    cin>>s;
-    int c(0), d(0);
-    for(int i = 0 ; i < s.size() ; i++){
-        if(s[i]=='0'){
-            c++;
-            d=0;
+void C_R_7(){
+  int n;
+    cin>>n;
+    unordered_set<string> s;
+    s.insert("VODKA");
+    s.insert("WHISKEY");
+    s.insert("WINE");
+    s.insert("TEQUILA");
+    s.insert("SAKE");
+    s.insert("RUM");
+    s.insert("GIN");
+    s.insert("CHAMPAGNE");
+    s.insert("BEER");
+    s.insert("BRANDY");
+    s.insert("ABSINTH");
+    int cnt = 0;
+    while(n--)
+    {
+        string str;
+        cin>>str;
+        if(!isalpha(str[0]))
+        {
+            if(stoi(str) < 18)
+            {
+                cnt++;
+            }
         }
-        else {
-            d++;
-            c=0;
-        }
-        if(d==7 || c==7){
-            return "YES";
-
+        else if(s.find(str) != s.end())
+        {
+            cnt++;   
         }
     }
-    return "NO";
-
+    cout<<cnt;
     
     
 }
 signed main()
 {
   ios;
-  //freopen ("input.txt","r",stdin);
-  //freopen ("output.txt","w",stdout);
   int t = 1;
   //cin >> t;
   while (t--)
   {
-    cout<<C_R_7();
+    C_R_7();
     
   }
 

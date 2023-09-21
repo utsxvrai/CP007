@@ -80,39 +80,28 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 
 
-  string C_R_7(){
-  string s;
-    cin>>s;
-    int c(0), d(0);
-    for(int i = 0 ; i < s.size() ; i++){
-        if(s[i]=='0'){
-            c++;
-            d=0;
-        }
-        else {
-            d++;
-            c=0;
-        }
-        if(d==7 || c==7){
-            return "YES";
-
+void C_R_7(){
+  string s, h = "hello";
+    cin >> s;
+    int i = 0;
+    for (int j = 0; j < (int)s.size(); j++) {
+        if (s[j] == h[i]) {
+            i++;
+            if (i == h.size()) break;
         }
     }
-    return "NO";
-
+    cout << (i == h.size() ? "YES\n" : "NO\n");
     
     
 }
 signed main()
 {
   ios;
-  //freopen ("input.txt","r",stdin);
-  //freopen ("output.txt","w",stdout);
   int t = 1;
   //cin >> t;
   while (t--)
   {
-    cout<<C_R_7();
+    C_R_7();
     
   }
 

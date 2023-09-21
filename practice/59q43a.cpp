@@ -80,25 +80,36 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 
 
-  string C_R_7(){
-  string s;
+void C_R_7(){
+  int n; cin>>n;
+  map<string, int> teamGoals;
+  if(n==1){
+    string d; cin>>d;
+    cout<<d;
+    return;
+  }
+  vector<string> v;
+  while(n--){
+    string s;
     cin>>s;
-    int c(0), d(0);
-    for(int i = 0 ; i < s.size() ; i++){
-        if(s[i]=='0'){
-            c++;
-            d=0;
-        }
-        else {
-            d++;
-            c=0;
-        }
-        if(d==7 || c==7){
-            return "YES";
+    v.pb(s);
+  }
+  
+    
+    for (const string& team : v) {
+        teamGoals[team]++;
+    }
+    string t;
+    int highestGoals = INT_MIN;
 
+    for (const auto& pair : teamGoals) {
+        if (pair.second > highestGoals) {
+            highestGoals = pair.second;
+            t = pair.first;
         }
     }
-    return "NO";
+    cout<<t;
+
 
     
     
@@ -106,13 +117,11 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 signed main()
 {
   ios;
-  //freopen ("input.txt","r",stdin);
-  //freopen ("output.txt","w",stdout);
   int t = 1;
   //cin >> t;
   while (t--)
   {
-    cout<<C_R_7();
+    C_R_7();
     
   }
 
