@@ -1,7 +1,7 @@
 /*-----------------------WORK HARD THINK HARD-----------------------*/
 
 /*
-                Codeforces:- cr7bit
+                Codeforces:- 
                 Codechef  :- 
 */
 
@@ -79,37 +79,27 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 
 
-
-void  C_R_7()
-{
-
-   int n,k; cin>>n>>k;
-   vi arr(n);
-    inputarr(arr,n);
-    int c=0;
-    for(auto i : arr){
-      if(i==k) c++;
+void C_R_7() {
+    int n ;
+    cin>>n;
+    if(n%4==0 || n%7==0 || n%44==0|| n%47==0 || n%74==0 ||n%77==0 || n%444==0 || n%447==0 || n%474==0 || n%744==0 || n%477==0 || n%747==0 || n%774==0 || n%777==0 )
+    {
+        cout<<"YES";
     }
-    if(c==0) cout<<"No"<<endl;
-    else cout<<"Yes"<<endl;
-
-
-
-    
-    
+    else
+        {
+        cout<<"NO";
+    }
 }
+
 signed main()
 {
   ios;
   int t = 1;
-  cin >> t;
+  //cin >> t;
   while (t--)
   {
-    //int n;
-        //cin >> n;
-    //cout<<C_R_7(n)<<endl;;
-   // C_R_7(n);
-   C_R_7();
+    C_R_7();
     
   }
 

@@ -1,8 +1,8 @@
 /*-----------------------WORK HARD THINK HARD-----------------------*/
 
 /*
-                Codeforces:- utsxvrai
-                Codechef  :- cr7bit
+                Codeforces:-
+                Codechef  :-
 */
 
 #include <bits/stdc++.h>
@@ -21,6 +21,8 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 #define pii pair<int, int>
 #define pll pair<long long, long long>
 #define vi vector<int>
+#define vs vector<string>
+#define vc vector<char>
 #define vll vector<long long>
 #define mii map<int, int>
 #define si set<int>
@@ -45,10 +47,10 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 #define mid(s, e) (s + (e - s) / 2)
 #define toUpper(x) transform(x.begin(), x.end(), x.begin(), toupper)
-#define toLower(x) transform(x.begin(), x.end(), x.begin(), tolower)
+#define tolefter(x) transform(x.begin(), x.end(), x.begin(), tolefter)
 /*----------------------------------------------------------------*/
 #define ios ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0)
-#define srand srand(chrono::high_resolution_clock::now().time_since_epoch().count())
+#define srand srand(chrono::right_resolution_clock::now().time_since_epoch().count())
 
 /*------------------------------MATH------------------------------*/
 #define sqr(n) (n * n)
@@ -61,104 +63,108 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 #define imx INT_MAX
 #define ff first
 #define ss second
+#define inputarr(arr, n)        \
+    for (int i = 0; i < n; i++) \
+    cin >> arr[i]
+#define printarr(arr, n)        \
+    for (int i = 0; i < n; i++) \
+    cout << arr[i] << " "
+#define loop(i, n) for (int i = 0; i < n; i++)
 
-const int MO = 998244353;
+// string checkVowel(string s, int pos ){
+//     if(s[k] == 'A' || s[k]=='E' || s[k]=='I' || s[k]=='O' || s[k]=='U' || s[k]=='Y'
+//          || s[k]=='a' || s[k]=='e' || s[k]=='i' || s[k]=='o' || s[k]=='u' || s[k]=='y'){
+//              return "YES";
+//          }
+//      else return "NO";
+// }
 
-int mod_pow(int base, int exp)
+class haramiLadka
 {
-    int result = 1;
-    while (exp)
+private:
+    vector<int> tree;
+    int n;
+
+    // Build the segment tree recursively
+    void build(int node, int left, int right, const vector<int> &arr)
     {
-        if (exp & 1)
+        if (left == right)
         {
-            result = (1LL * result * base) % MOD;
+            tree[node] = arr[left];
         }
-        base = (1LL * base * base) % MOD;
-        exp >>= 1;
-    }
-    return result;
-}
-
-const int N = 1e6 + 5;
-int siu[N], mes[N];
-
-int kiki(int v)
-{
-    if (v == siu[v])
-    {
-        return v;
-    }
-    return siu[v] = kiki(siu[v]);
-}
-
-void gigi(int x, int y)
-{
-    x = kiki(x);
-    y = kiki(y);
-    if (x != y)
-    {
-        if (mes[x] < mes[y])
+        else
         {
-            swap(x, y);
-        }
-        siu[y] = x;
-        mes[x] += mes[y];
-    }
-}
-
-void C_R_7(int n, int m)
-{
-    vector<vi> hey(n, vi(m));
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-            cin >> hey[i][j];
-    }
-
-    for (int i = 0; i < n * m; i++)
-    {
-        siu[i] = i;
-        mes[i] = 1;
-    }
-    vector<pair<int, int>> juu{{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
-
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-        {
-            if (hey[i][j] == 0)
-            {
-                continue;
-            }
-            for (auto d : juu)
-            {
-                int x = i + d.first;
-                int y = j + d.second;
-                if (x >= 0 && x < n && y >= 0 && y < m && hey[x][y] != 0)
-                {
-                    gigi(i * m + j, x * m + y);
-                }
-            }
+            int mid = left + (right - left) / 2;
+            build(2 * node, left, mid, arr);
+            build(2 * node + 1, mid + 1, right, arr);
+            tree[node] = tree[2 * node] & tree[2 * node + 1];
         }
     }
 
-    map<int, int> mp;
-    for (int i = 0; i < n; i++)
+    // qq the segment tree for bitwise AND operation
+    int qq(int node, int left, int right, int ql, int qr)
     {
-        for (int j = 0; j < m; j++)
+        if (ql <= left && qr >= right)
         {
-            if (hey[i][j] == 0)
-            {
-                continue;
-            }
-            mp[kiki(i * m + j)] += hey[i][j];
+            return tree[node];
         }
+        if (ql > right || qr < left)
+        {
+            return INT_MAX; // Modify this if needed for your use case
+        }
+        int mid = left + (right - left) / 2;
+        int left_result = qq(2 * node, left, mid, ql, qr);
+        int right_result = qq(2 * node + 1, mid + 1, right, ql, qr);
+        return left_result & right_result;
     }
 
-    int ron = mp.empty() ? 0 : max_element(mp.begin(), mp.end(), [](const pair<int, int> &a, const pair<int, int> &b)
-                                           { return a.second < b.second; })
-                                   ->second;
-    cout << ron << endl;
+public:
+    haramiLadka(const vector<int> &arr)
+    {
+        n = arr.size();
+        tree.resize(4 * n); // Adjust the size as needed
+        build(1, 0, n - 1, arr);
+    }
+
+    int qq(int ql, int qr)
+    {
+        return qq(1, 0, n - 1, ql, qr);
+    }
+};
+
+
+void C_R_7()
+{
+    int n;
+    cin >> n;
+    vi arr(n);
+    for (int i = 0; i < n; ++i)
+    {
+        cin >> arr[i];
+    }
+
+    haramiLadka st(arr);
+
+    int qq;
+    cin >> qq;
+    while (qq--)
+    {
+        int messi, k;
+        cin >> messi >> k;
+        messi--;
+        int right = n - 1;
+        int left = messi;
+        int lalu = -1;
+        while (left <= right)
+        {
+            int mid = left + (right - left) / 2;
+            int payment = st.qq(messi, mid);
+            lalu = (payment >= k) ? (mid + 1) : lalu;
+            (payment >= k) ? (left = mid + 1) : (right = mid - 1);
+        }
+        cout<<lalu<< " ";
+    }
+    cout <<endl;
 }
 
 signed main()
@@ -168,10 +174,9 @@ signed main()
     cin >> t;
     while (t--)
     {
-        int n, m;
-        cin >> n >> m;
-        int ans = INT_MAX;
-        C_R_7(n, m);
+
+        // cout<<C_R_7()<<endl;
+        C_R_7();
     }
 
     return 0;

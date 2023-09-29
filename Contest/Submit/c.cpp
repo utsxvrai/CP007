@@ -65,7 +65,8 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 #define ss second
 #define inputarr(arr,n) for(int i = 0 ; i < n ; i++) cin>>arr[i]
 #define printarr(arr,n) for(int i = 0 ; i < n ; i++) cout<<arr[i]<<" "
-#define loop(i,n) for(int i = 0 ; i < n ; i++)
+#define loop1(i,n) for(int i = 1 ; i < n ; i++)
+#define loop0(i,n) for(int i = 0 ; i < n ; i++)
 
 // string checkVowel(string s, int pos ){
 //     if(s[k] == 'A' || s[k]=='E' || s[k]=='I' || s[k]=='O' || s[k]=='U' || s[k]=='Y'
@@ -76,48 +77,32 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 // }
 
 
-bool coprime(int a, int b) {
-      
-    if ( gcd(a, b) == 1)
-        return 1;
-    else
-        return 0;     
-}
+const int N = 2e5 + 5;
+const int MO = 998244353;
 
+int A[N];
 
-
-void C_R_7()
+string C_R_7()
 {
-    int l, r;
-       cin>>l>>r;
+  int n,k,x;
+  cin>>n>>k>>x;
 
-       int fe = -1;
+  int j = k*(k+1)/2;
+  int g = n*(n+1)/2 - (n-k) * (n-k+1)/2;
+  
+  if(x<j || x>g){
+    return "NO";
+  }
+  else{
+    return "YES";
+  }
 
-       for(int i=l ; i<=r;i++){
-        if(i%2==0 && i!=2){
-            fe = i;
-            break;
-        }
-       }
 
-       if(fe!=-1){
-        cout<<fe/2<<" "<<fe/2<<endl; return;
-        
-       }
+    
+   
+    
 
-       int siu = 0;
 
-       for(int i=2; i<=sqrt(r) ; i++){
-        if(gcd(i, r-i)!=1){
-            cout<<i<<" "<<r-i<<endl;
-            siu = 1;
-            break;
-        }
-       }
-
-       if(!siu){
-        cout<<-1<<endl;
-       }
 
     }
 
@@ -129,7 +114,13 @@ signed main()
   cin >> t;
   while (t--)
   {
-    C_R_7();
+    
+
+    //string s; cin>>s;
+    //int n=s.size();
+    //vi mes = C_R_7(s,n);
+    //cout<<mes[0]<<" "<<mes[1]<<endl;
+    cout<<C_R_7();
     
   }
 

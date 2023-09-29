@@ -1,7 +1,7 @@
 /*-----------------------WORK HARD THINK HARD-----------------------*/
 
 /*
-                Codeforces:- cr7bit
+                Codeforces:- 
                 Codechef  :- 
 */
 
@@ -55,6 +55,8 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 /*------------------------------MATH------------------------------*/
 #define sqr(n) (n * n)
 #define PI 3.1415926535897932384626433832795
+#define maxx(a,b,c) max(a,max(b,c))
+#define minn(a,b,c) min(a,min(b,c))
 
 /*------------------------------Extras------------------------------*/
 #define null NULL
@@ -80,21 +82,16 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 
 
-void  C_R_7()
-{
-
-   int n,k; cin>>n>>k;
-   vi arr(n);
-    inputarr(arr,n);
-    int c=0;
-    for(auto i : arr){
-      if(i==k) c++;
-    }
-    if(c==0) cout<<"No"<<endl;
-    else cout<<"Yes"<<endl;
-
-
-
+void C_R_7(){
+  int a,b,c;
+  cin>>a>>b>>c;
+  int ans=a+b+c;
+		ans=max(ans,(a*b*c));
+		ans=max(ans,(a+b)*c);
+		ans=max(ans,a*(b+c));
+		ans=max(ans,a+(b*c));
+		ans=max(ans,(a*b)+c);
+		cout<<ans<<endl;
     
     
 }
@@ -102,14 +99,10 @@ signed main()
 {
   ios;
   int t = 1;
-  cin >> t;
+  //cin >> t;
   while (t--)
   {
-    //int n;
-        //cin >> n;
-    //cout<<C_R_7(n)<<endl;;
-   // C_R_7(n);
-   C_R_7();
+    C_R_7();
     
   }
 
