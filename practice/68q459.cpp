@@ -1,8 +1,8 @@
 /*-----------------------WORK HARD THINK HARD-----------------------*/
 
 /*
-                Codeforces:- cr7bit
-                Codechef  :- 
+                Codeforces:-
+                Codechef  :-
 */
 
 #include <bits/stdc++.h>
@@ -63,57 +63,61 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 #define imx INT_MAX
 #define ff first
 #define ss second
-#define inputarr(arr,n) for(int i = 0 ; i < n ; i++) cin>>arr[i]
-#define printarr(arr,n) for(int i = 0 ; i < n ; i++) cout<<arr[i]<<" "
-#define loop0(i,n) for(int i = 0 ; i < n ; i++)
+#define inputarr(arr, n)        \
+    for (int i = 0; i < n; i++) \
+    cin >> arr[i]
+#define printarr(arr, n)        \
+    for (int i = 0; i < n; i++) \
+    cout << arr[i] << " "
+#define loop(i, n) for (int i = 0; i < n; i++)
 
-// string checkVowel(string s, int pos ){
-//     if(s[k] == 'A' || s[k]=='E' || s[k]=='I' || s[k]=='O' || s[k]=='U' || s[k]=='Y'
-//          || s[k]=='a' || s[k]=='e' || s[k]=='i' || s[k]=='o' || s[k]=='u' || s[k]=='y'){
-//              return "YES";
-//          }
-//      else return "NO";
-// }
-
-
-int C_R_7(string s)
+void C_R_7()
 {
-  int g = 1, siu = 0;
-  loop0(i, s.size())
-  {
-    if (s[i] == '0')
+    int x1, y1, x2, y2;
+    cin >> x1 >> y1 >> x2 >> y2;
+    int x3, y3, x4, y4;
+    if (x1 == x2)
     {
-      {
-        s[i] = '0' + 10;
-      }
+        int d = abs(y1 - y2); 
+        x3 = x1 + d;
+        y3 = y1;
+        x4 = x2 + d;
+        y4 = y2;
     }
-
-    auto mes = [](string s, int siu, int g)
+    else if (y1 == y2)
     {
-      loop0(i, s.size())
-      {
-        siu += abs((s[i] - '0') - g);
-        siu += 1;
-        g = s[i] - '0';
-      }
-      return siu;
-    };
-
-    int ans = mes(s, siu, g);
-    return ans;
-  }
+        int d = abs(x1 - x2);
+        x3 = x1;
+        y3 = y1 + d;
+        x4 = x2;
+        y4 = y2 + d;
+    }
+    else
+    {
+        if (abs(x1 - x2) != abs(y1 - y2))
+        {
+            cout << -1 << endl;
+            return;
+        }
+        else
+        {
+            x3 = x1;
+            y3 = y2;
+            x4 = x2;
+            y4 = y1;
+        }
+    }
+    cout << x3 << " " << y3 << " " << x4 << " " << y4 << endl;
 }
 signed main()
 {
-  ios;
-  int t = 1;
-  cin >> t;
-  while (t--)
-  {
-    string s;cin>>s;
-   cout<<C_R_7(s)<<endl;
-    
-  }
+    ios;
+    int t = 1;
+    // cin >> t;
+    while (t--)
+    {
+        C_R_7();
+    }
 
-  return 0;
+    return 0;
 }

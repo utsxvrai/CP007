@@ -1,8 +1,8 @@
 /*-----------------------WORK HARD THINK HARD-----------------------*/
 
 /*
-                Codeforces:- 
-                Codechef  :- 
+                Codeforces:-
+                Codechef  :-
 */
 
 #include <bits/stdc++.h>
@@ -63,39 +63,86 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 #define imx INT_MAX
 #define ff first
 #define ss second
-#define inputarr(arr,n) for(int i = 0 ; i < n ; i++) cin>>arr[i]
-#define printarr(arr,n) for(int i = 0 ; i < n ; i++) cout<<arr[i]<<" "
-#define loop(i,n) for(int i = 0 ; i < n ; i++)
-
-// string checkVowel(string s, int pos ){
-//     if(s[k] == 'A' || s[k]=='E' || s[k]=='I' || s[k]=='O' || s[k]=='U' || s[k]=='Y'
-//          || s[k]=='a' || s[k]=='e' || s[k]=='i' || s[k]=='o' || s[k]=='u' || s[k]=='y'){
-//              return "YES";
-//          }
-//      else return "NO";
-// }
-
-
-
-
-
-
-void C_R_7(){
-  int n; cin>>n;
-  vi arr(n);
-  inputarr(arr,n);
-    
-    
+// -----------------------------------------------------------------------
+string checkVowel(string s, int pos)
+{
+  char c = tolower(s[pos]);
+  if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'y')
+  {
+    return "YES";
+  }
+  else
+  {
+    return "NO";
+  }
 }
+// ------------------------------------------------------------------------
+map<long, long> F;
+long fib(long n) // to calculate fibonacci in O(logn)
+{
+  if (F.count(n))
+    return F[n];
+  long k = n / 2;
+  if (n % 2 == 0)
+  { // n=2*k
+    return F[n] = (fib(k) * fib(k) + fib(k - 1) * fib(k - 1)) % MOD;
+  }
+  else
+  { // n=2*k+1
+    return F[n] = (fib(k) * fib(k + 1) + fib(k - 1) * fib(k)) % MOD;
+  }
+}
+//------------------------------------------------------------------------
+int joddo(int n)
+{
+  int sum = 0;
+  while (n)
+  {
+    sum += n % 10;
+    n /= 10;
+  }
+  return sum;
+}
+// ------------------------------------------------------------------------
+vi factors(int n)
+{
+  vi v;
+  while (n % 2 == 0)
+  {
+    v.pb(2);
+    n /= 2;
+  }
+
+  for (int i = 3; i < sqrt(n); i += 2)
+  {
+    while (n % i == 0)
+    {
+      v.pb(i);
+      n /= i;
+    }
+  }
+
+  if (n > 2)
+  {
+    v.pb(n);
+  }
+
+  return v;
+}
+// ------------------------------------------------------------------------
+
+void C_R_7()
+{
+}
+
 signed main()
 {
   ios;
   int t = 1;
-  //cin >> t;
+  // cin >> t;
   while (t--)
   {
     C_R_7();
-    
   }
 
   return 0;

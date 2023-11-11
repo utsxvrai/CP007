@@ -1,8 +1,8 @@
 /*-----------------------WORK HARD THINK HARD-----------------------*/
 
 /*
-                Codeforces:- cr7bit
-                Codechef  :- 
+                Codeforces:-
+                Codechef  :-
 */
 
 #include <bits/stdc++.h>
@@ -63,57 +63,46 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 #define imx INT_MAX
 #define ff first
 #define ss second
-#define inputarr(arr,n) for(int i = 0 ; i < n ; i++) cin>>arr[i]
-#define printarr(arr,n) for(int i = 0 ; i < n ; i++) cout<<arr[i]<<" "
-#define loop0(i,n) for(int i = 0 ; i < n ; i++)
+#define inputarr(arr, n)        \
+    for (int i = 0; i < n; i++) \
+    cin >> arr[i]
+#define printarr(arr, n)        \
+    for (int i = 0; i < n; i++) \
+    cout << arr[i] << " "
+#define loop(i, n) for (int i = 0; i < n; i++)
 
-// string checkVowel(string s, int pos ){
-//     if(s[k] == 'A' || s[k]=='E' || s[k]=='I' || s[k]=='O' || s[k]=='U' || s[k]=='Y'
-//          || s[k]=='a' || s[k]=='e' || s[k]=='i' || s[k]=='o' || s[k]=='u' || s[k]=='y'){
-//              return "YES";
-//          }
-//      else return "NO";
-// }
-
-
-int C_R_7(string s)
+void C_R_7()
 {
-  int g = 1, siu = 0;
-  loop0(i, s.size())
-  {
-    if (s[i] == '0')
-    {
-      {
-        s[i] = '0' + 10;
-      }
+    int s,n;
+    cin>>s>>n;
+    vector<pair<int,int>> v;
+    for(int i=0;i<n;i++){
+        int x,y;
+        cin>>x>>y;
+        v.push_back(make_pair(x,y));
     }
-
-    auto mes = [](string s, int siu, int g)
-    {
-      loop0(i, s.size())
-      {
-        siu += abs((s[i] - '0') - g);
-        siu += 1;
-        g = s[i] - '0';
-      }
-      return siu;
-    };
-
-    int ans = mes(s, siu, g);
-    return ans;
-  }
+    sort(v.begin(),v.end());
+    for(int i=0;i<n;i++){
+        if(s>v[i].first){
+            s+=v[i].second;
+        }
+        else{
+            cout<<"NO"<<endl;
+            return;
+        }
+    }
+    cout<<"YES"<<endl;
+    
 }
 signed main()
 {
-  ios;
-  int t = 1;
-  cin >> t;
-  while (t--)
-  {
-    string s;cin>>s;
-   cout<<C_R_7(s)<<endl;
-    
-  }
+    ios;
+    int t = 1;
+    // cin >> t;
+    while (t--)
+    {
+        C_R_7();
+    }
 
-  return 0;
+    return 0;
 }
