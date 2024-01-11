@@ -163,12 +163,7 @@ void C_R_7()
 
     if(d == mx) cout<<d-1<<endl;
     else if(d>mx ) cout<<min(d-1,mx)<<endl;
-    else if(d<mx)cout<<min(d,mx-1)<<endl;
-
-
-    
-    
-
+    else if(d<mx)cout<<min(d,mx-1)<<endl;   
 }
 
 signed main()

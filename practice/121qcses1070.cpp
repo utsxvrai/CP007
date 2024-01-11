@@ -59,43 +59,39 @@ int lcm(int a, int b) { return (a/__gcd(a,b))*b; } // lcm(a,b) log(n)
 
 void C_R_7()
 {
-  int n;
-    cin >> n;
-    vi v(n);
-    jes(i, 0, n - 1) cin >> v[i];
-
-    auto calculate_difference = [&](int k) {
-        int mini = LONG_LONG_MAX, maxi = LONG_LONG_MIN;
-        int g = 0, c = 0;
-
-        jes(j, 0, n - 1)
-        {
-            g += v[j];
-            c++;
-            if (c == k)
-            {
-                mini = min(mini, g);
-                maxi = max(maxi, g);
-                g = 0;
-                c = 0;
-            }
-        }
-
-        return maxi - mini;
-    };
-
-    int siu = *max_element(be(v)) - *min_element(be(v));
-    jes(i, 2, n - 1)
-    {
-        if (n % i == 0)
-        {
-            int h = calculate_difference(i);
-            siu = max(siu, h);
-        }
+    int n;
+    cin>>n;
+    int m=n-1;
+    if(n==2 || n==3){
+        cout<<"NO SOLUTION"<<endl;
+        return;
     }
+    if(n&1){
 
-    cout << siu << endl;
-
+    while(n>0){
+        cout<<n<<" ";
+        n-=2;
+    }
+    while(m>0){
+        cout<<m<<" ";
+        m-=2;
+    }
+    cout<<endl;
+    }
+    else{
+        int b=2;
+        while(b<=n){
+            cout<<b<<" ";
+            b+=2;
+        }
+        b=1;
+        while(b<=n){
+            cout<<b<<" ";
+            b+=2;
+        }
+        cout<<endl;
+    }
+    
 }
 
 //----Coding bahut ho gya ab samay aya hai gf banane ka-----
@@ -104,7 +100,7 @@ signed main()
 {
     Bolt;
     int t = 1;
-    cin >> t;
+    //cin >> t;
     while (t--)
     {
         C_R_7();

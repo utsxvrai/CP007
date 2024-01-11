@@ -59,42 +59,46 @@ int lcm(int a, int b) { return (a/__gcd(a,b))*b; } // lcm(a,b) log(n)
 
 void C_R_7()
 {
-  int n;
-    cin >> n;
-    vi v(n);
-    jes(i, 0, n - 1) cin >> v[i];
+    string s; cin>>s;
 
-    auto calculate_difference = [&](int k) {
-        int mini = LONG_LONG_MAX, maxi = LONG_LONG_MIN;
-        int g = 0, c = 0;
+    for(int i = 0 ; i < sz(s) ; i++){
+        if(s[i]%8 == 0  || s[i] == '0'){
+            cout<<"YES"<<endl;
+            cout<<s[i]<<endl;
+            return;
+        }
 
-        jes(j, 0, n - 1)
-        {
-            g += v[j];
-            c++;
-            if (c == k)
-            {
-                mini = min(mini, g);
-                maxi = max(maxi, g);
-                g = 0;
-                c = 0;
+        
+    }
+    if(sz(s) >=2 ){
+            jes(i,0,sz(s)-1){
+                jes(j,i+1,sz(s)-1){
+                    int x = (s[i]-'0')*10 + (s[j]-'0');
+                    if(x%8 == 0){
+                        cout<<"YES"<<endl;
+                        cout<<x<<endl;
+                        return;
+                    }
+                }
             }
         }
 
-        return maxi - mini;
-    };
-
-    int siu = *max_element(be(v)) - *min_element(be(v));
-    jes(i, 2, n - 1)
-    {
-        if (n % i == 0)
-        {
-            int h = calculate_difference(i);
-            siu = max(siu, h);
+        if(sz(s)>=3){
+            jes(i,0,sz(s)-1){
+                jes(j,i+1,sz(s)-1){
+                    jes(k,j+1,sz(s)-1){
+                        int x = (s[i]-'0')*100 + (s[j]-'0')*10 + (s[k]-'0');
+                        if(x%8 == 0){
+                            cout<<"YES"<<endl;
+                            cout<<x<<endl;
+                            return;
+                        }
+                    }
+                }
+            }
+        
         }
-    }
-
-    cout << siu << endl;
+        pn
 
 }
 
@@ -104,7 +108,7 @@ signed main()
 {
     Bolt;
     int t = 1;
-    cin >> t;
+   // cin >> t;
     while (t--)
     {
         C_R_7();

@@ -63,7 +63,14 @@ int lcm(int a,int b) {return (a/__gcd(a,b))*b;} // lcm(a,b) log(n)
 
 void C_R_7()
 {
-    
+    int n;
+    cin >> n;
+    if(n==5){
+        cout<<2<<" "<<4<<endl;
+        return;
+    }
+    int k = n/2;
+    cout<<2<<" "<<k<<endl;
 }
 
 //----Coding bahut ho gya ab samay aya hai gf banane ka-----

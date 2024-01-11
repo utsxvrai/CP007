@@ -59,42 +59,26 @@ int lcm(int a, int b) { return (a/__gcd(a,b))*b; } // lcm(a,b) log(n)
 
 void C_R_7()
 {
-  int n;
-    cin >> n;
-    vi v(n);
-    jes(i, 0, n - 1) cin >> v[i];
-
-    auto calculate_difference = [&](int k) {
-        int mini = LONG_LONG_MAX, maxi = LONG_LONG_MIN;
-        int g = 0, c = 0;
-
-        jes(j, 0, n - 1)
-        {
-            g += v[j];
-            c++;
-            if (c == k)
-            {
-                mini = min(mini, g);
-                maxi = max(maxi, g);
-                g = 0;
-                c = 0;
+    int n;
+        cin >> n;
+        int ar[2*n+1];
+        for (int i = 0; i <=2*n; ++i) {
+            ar[i] = inf;
+        }
+        for (int i = 1; i <= n; ++i) {
+            int x;
+            cin>>x;
+            ar[x] = i;
+        }
+        int siu =0;
+        for (int i = 3; i < 2*n; ++i) {
+            for (int j = 1; j <sqrt(i) ; ++j) {
+                if (i%j==0 && (ar[j] + ar[i/j] == i)) {
+                    siu++;
+                }
             }
         }
-
-        return maxi - mini;
-    };
-
-    int siu = *max_element(be(v)) - *min_element(be(v));
-    jes(i, 2, n - 1)
-    {
-        if (n % i == 0)
-        {
-            int h = calculate_difference(i);
-            siu = max(siu, h);
-        }
-    }
-
-    cout << siu << endl;
+        cout<<siu<<"\n";
 
 }
 

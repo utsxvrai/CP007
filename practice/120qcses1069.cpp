@@ -54,6 +54,7 @@ vi factors(int n){vi v;while (n % 2 == 0){ v.pb(2);n /= 2;}for (int i = 3; i < s
 unsigned int power(int x,int y,int p){unsigned int s=1; x=x%p;while(y>0){ if(y&1) s=(s*x)%p;y=y>>1;x=(x*x)%p;}return s%p;}//power(a,b,c)log(n) 
 bool isPrime(int n){if (n <= 1)return false;if(n<=3)return true;if(n%2==0||n%3==0)return false;for(int i=5;i*i<=n;i+=6){if(n%i==0||n%(i+2)==0)
                             return false;}return true;}// isPrime
+vi prePrime(int n){vi v(n,true);;for (int i = 2; i*i <=n ; ++i) {for (int j = i*i; j <=n ; j+=i) {v[j] = false;}}return v;} // vector of prime numbers less than n  prePrime(n
 int modInverse(unsigned int n,int p){ return power(n,p-2,p);}  // modInverse(n,p) log(n)  
 int ncr(int n,int r,int p){ if(n<0 || r>n) return 0; else if(r==0 || r==n) return 1; int fac[n+1]; fac[0]=1; for(int i=1; i<=n; i++) fac[i]=
                           (fac[i-1]*i)%p; return (fac[n]*modInverse(fac[r],p)%p*modInverse(fac[n-r],p)%p)%p;} // ncr(n,r,p) log(n)
@@ -61,24 +62,54 @@ int factorial(int n,int p){ int cnt=1; for(int i=1; i<=n; i++) { cnt*=i; cnt%=p;
 int isPalindrome(string s) {for(int i=0; i<(int)s.size(); i++) {if(s[i]!=s[s.size()-i-1]) return 0;} return 1;} // isPalindrome(s) log(n)
 int lcm(int a,int b) {return (a/__gcd(a,b))*b;} // lcm(a,b) log(n)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 void C_R_7()
 {
-    int n,m;
-    cin>>n>>m;
-    vi vn(5,0),vm(5,0);
-    jes(i,1,n){
-        vn[i%5]++;
+    string d;
+    cin>>d;
+    int n = sz(d);
+    int maxxi(1) , curr(1);
+    for(int i = 1 ; i < n ; i++){
+        if(d[i]==d[i-1]){
+            curr++;
+        }
+        else curr = 1;
+        maxxi=max(maxxi,curr);
+
     }
-    jes(i,1,m){
-        vm[i%5]++;
-    }
-    int siu=0;
-    jes(i,1,4){
-        siu += vn[i]*vm[5-i];
-    }
-    siu += vn[0]*vm[0];
-    cout<<siu;
+    cout<<maxxi;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //----Coding bahut ho gya ab samay aya hai gf banane ka-----
 

@@ -9,7 +9,7 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 
 #define Bolt            ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 #define srand           srand(chrono::high_resolution_clock::now().time_since_epoch().count())
-#define int             long long
+// #define int             long long
 #define pii             pair<int, int>
 #define vi              vector<int>
 #define vs              vector<string>
@@ -57,44 +57,32 @@ int factorial(int n, int p) { int cnt=1; for(int i=1; i<=n; i++) { cnt*=i; cnt%=
 int isPalindrome(string s) { for(int i=0; i<(int)s.size(); i++) { if(s[i]!=s[s.size()-i-1]) return 0; } return 1; } // isPalindrome(s) log(n)
 int lcm(int a, int b) { return (a/__gcd(a,b))*b; } // lcm(a,b) log(n)
 
+
+int fre[1000001];
 void C_R_7()
 {
-  int n;
-    cin >> n;
-    vi v(n);
-    jes(i, 0, n - 1) cin >> v[i];
-
-    auto calculate_difference = [&](int k) {
-        int mini = LONG_LONG_MAX, maxi = LONG_LONG_MIN;
-        int g = 0, c = 0;
-
-        jes(j, 0, n - 1)
-        {
-            g += v[j];
-            c++;
-            if (c == k)
-            {
-                mini = min(mini, g);
-                maxi = max(maxi, g);
-                g = 0;
-                c = 0;
-            }
-        }
-
-        return maxi - mini;
-    };
-
-    int siu = *max_element(be(v)) - *min_element(be(v));
-    jes(i, 2, n - 1)
-    {
-        if (n % i == 0)
-        {
-            int h = calculate_difference(i);
-            siu = max(siu, h);
-        }
+    int n;
+    cin>>n;
+    int a[n];
+    jes(i,0,n-1) {
+        int m; cin>>m;
+        fre[m]++;
     }
 
-    cout << siu << endl;
+    for(int g = 1000000 ; g >=1 ; g--){
+        int c=0;
+        for(int i = g ; i <= 1000000 ; i+=g){
+            c+=fre[i];
+            if(c>=2){
+                break;
+            } 
+        } 
+            if(c>=2){
+                cout<<g<<endl;
+                return;
+            }
+        
+    }
 
 }
 
@@ -104,7 +92,7 @@ signed main()
 {
     Bolt;
     int t = 1;
-    cin >> t;
+    //cin >> t;
     while (t--)
     {
         C_R_7();
