@@ -66,15 +66,14 @@ void C_R_7()
 {
     int n;
     cin>>n;
-    if(n%2!=0) py
-    while(n!=1){
-        if(n%2!=0 && n!=1){
-            py
+    while(n>1){
+        if(n%2==0) n/=2;
+        else {
+            cout<<"Yes"<<endl;
             return;
         }
-        n/=2;
     }
-    pn
+    cout<<"NO"<<endl;
     
     
     
