@@ -14,35 +14,15 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 #define vi              vector<int>
 #define vs              vector<string>
 #define vc              vector<char>
-#define mii             map<int, int>
-#define si              set<int>
-#define sc              set<char>
-#define jes(i, s, e)    for (int i = s; i <= e; i++)
 #define pb              push_back
-#define lb              lower_bound
-#define ub              upper_bound
-#define mp              make_pair
-#define eb              emplace_back
 #define setBits(x)      __builtin_popcountll(x)
 #define zeroBits(x)     __builtin_ctzll(x)
-#define be(v)           (v).begin(), (v).end()
-#define rbe(v)          (v).rbegin(), (v).rend()
-#define sz(a)           (a).size()
 #define mod             1000000007
 #define inf             1e18
 #define sp(x, y)        fixed << setprecision(y) << x
-#define mid(s, e)       (s + (e - s) / 2)
-#define toUpper(x)      transform(x.begin(), x.end(), x.begin(), toupper)
-#define toLower(x)      transform(x.begin(), x.end(), x.begin(), tolower)
-#define PI              3.1415926535897932384626433832795
+#define pi              3.1415926535897932384626433832795
 #define null            NULL
 #define endl            '\n'
-#define imi             INT_MIN
-#define imx             INT_MAX
-#define ff              first
-#define ss              second
-#define py              {cout << "YES" << endl; return;}
-#define pn              {cout << "NO" << endl; return;}
 
 
 map<long, long> F; long fib(long n) {  if (F.count(n)) return F[n]; long k =n/2; if(n%2==0){return F[n]=(fib(k)*fib(k)+fib(k-1)*fib(k-1)) %mod;} else{return F[n] = (fib(k) * fib(k + 1) + fib(k - 1) * fib(k)) % mod;}} // fibonacci log(n)  fib(n)
@@ -57,34 +37,90 @@ int factorial(int n, int p) { int cnt=1; for(int i=1; i<=n; i++) { cnt*=i; cnt%=
 int isPalindrome(string s) { for(int i=0; i<(int)s.size(); i++) { if(s[i]!=s[s.size()-i-1]) return 0; } return 1; } // isPalindrome(s) log(n)
 int lcm(int a, int b) { return (a/__gcd(a,b))*b; } // lcm(a,b) log(n)
 
+vector<vector<char>> v(8,vector<char>(8));
+int cnt = 0;
+bool is_safe(int i,int j){
+    if(v[i][j] == '*'){
+        return false;
+    }
+    for(int k = i , l = j ; k>=0 && l>=0 ; k--,l--){
+        if(v[k][l] == 'Q'){
+            return false;
+        }
+    }
+    for(int k = i , l = j ; k >=0 && l <8 ;    k--, l++){
+        if(v[k][l] == 'Q'){
+            return false;
+        }
+    }
+    for(int k = i ; k >= 0 ; k--){
+        if(v[k][j] == 'Q'){
+            return false;
+        }
+    }
+
+    return true;
+
+} 
+
+void solve( int n,int m, int i){
+    if(i == 8){
+        cnt++;
+        return;
+    }
+
+    for(int k = 0 ; k < 8 ; k++){
+        if(is_safe(i,k)){
+            v[i][k] = 'Q';
+            solve(n,m,i+1);
+            v[i][k] = '.';
+        }
+    }
+
+
+}
+
+
+
+
+
+
+
+
 void C_R_7()
 {
-    int n; cin>>n;
-    int h ,m ; cin>>h>>m;
-    int tm = h*60 + m;
-    int minn(INT_MAX);
-    while(n--){
-        int siu(0);
-        int hh,mm; cin>>hh>>mm;
-        int sm = hh*60 + mm ;
-        if(tm > sm ){
-            int ans = 24*60 - tm;
-            siu = ans + sm;
+    for(int i=0;i<8;i++)
+    {
+        for(int j=0;j<8;j++)
+        {
+            cin>>v[i][j];
         }
-        else siu = sm - tm;
-        minn = min(minn,siu);
-
     }
-    cout<< minn/60<<" "<<minn%60<<endl;
+
+
+
+    solve(8,8,0);
+    cout<<cnt<<endl;
 }
 
 //----Coding bahut ho gya ab samay aya hai gf banane ka-----
+
+
+
+
+
+
+
+
+
+
+
 
 signed main()
 {
     Bolt;
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while (t--)
     {
         C_R_7();
