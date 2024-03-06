@@ -1,0 +1,1 @@
+{"name":"Local: b","url":"/home/cr7bit/Cris/CodeForces/Virtual  Contests/Atcoder/ABC 340/b.cpp","tests":[{"id":1708780397111,"input":"5\n1 20\n1 30\n2 1\n1 40\n2 3","output":"30\n20"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/cr7bit/Cris/CodeForces/Virtual  Contests/Atcoder/ABC 340/b.cpp","group":"local","local":true}

@@ -1,0 +1,1 @@
+{"name":"Local: 133q816b","url":"/home/cr7bit/Cris/CodeForces/practice/133q816b.cpp","tests":[{"id":1709213407974,"input":"3 2 4\n91 94\n92 97\n97 99\n92 94\n93 97\n95 96\n90 100","output":"fs"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/cr7bit/Cris/CodeForces/practice/133q816b.cpp","group":"local","local":true}
