@@ -1,0 +1,1 @@
+{"name":"Local: 140q1360d","url":"/home/cr7bit/Cris/CodeForces/practice/140q1360d.cpp","tests":[{"id":1712055326364,"input":"5\n8 7\n8 4\n6 10\n999999733 999999732\n999999733 999999733\n","output":"2\n2\n1\n999999733\n1\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/cr7bit/Cris/CodeForces/practice/140q1360d.cpp","group":"local","local":true}
