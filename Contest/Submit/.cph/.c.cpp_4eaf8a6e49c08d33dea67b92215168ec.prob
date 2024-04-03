@@ -1,1 +1,0 @@
-{"name":"Local: c","url":"/home/utsav/Desktop/CodeForces/Contest/Submit/c.cpp","tests":[{"id":1692910627289,"input":"3\n10010\n111\n0101","output":"1 2\n2 6\n0 1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/utsav/Desktop/CodeForces/Contest/Submit/c.cpp","group":"local","local":true}

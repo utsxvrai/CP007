@@ -55,8 +55,7 @@ int lcm(int a, int b) { return (a/__gcd(a,b))*b; } // lcm(a,b) log(n)
 
 void C_R_7()
 {
-    
-}
+    }
 
 //----Coding bahut ho gya ab samay aya hai gf banane ka-----
 

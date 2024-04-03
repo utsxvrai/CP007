@@ -1,1 +1,0 @@
-{"name":"Local: swap&delete","url":"/home/cr7bit/Cris/CodeForces/CP-31 Sheet/1000/swap&delete.cpp","tests":[{"id":1709683502730,"input":"4\n0\n011\n0101110001\n111100","output":"1\n1\n0\n4"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/cr7bit/Cris/CodeForces/CP-31 Sheet/1000/swap&delete.cpp","group":"local","local":true}

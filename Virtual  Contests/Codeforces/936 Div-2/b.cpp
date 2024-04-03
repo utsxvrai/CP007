@@ -14,35 +14,17 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 #define vi              vector<int>
 #define vs              vector<string>
 #define vc              vector<char>
-#define mii             map<int, int>
-#define si              set<int>
-#define sc              set<char>
-#define jes(i, s, e)    for (int i = s; i <= e; i++)
+#define taken           int n; cin>>n;
+#define scan(v)         for(auto &i : v)cin>>i;
 #define pb              push_back
-#define lb              lower_bound
-#define ub              upper_bound
-#define mp              make_pair
-#define eb              emplace_back
 #define setBits(x)      __builtin_popcountll(x)
 #define zeroBits(x)     __builtin_ctzll(x)
-#define be(v)           (v).begin(), (v).end()
-#define rbe(v)          (v).rbegin(), (v).rend()
-#define sz(a)           (a).size()
 #define mod             1000000007
 #define inf             1e18
 #define sp(x, y)        fixed << setprecision(y) << x
-#define mid(s, e)       (s + (e - s) / 2)
-#define toUpper(x)      transform(x.begin(), x.end(), x.begin(), toupper)
-#define toLower(x)      transform(x.begin(), x.end(), x.begin(), tolower)
-#define PI              3.1415926535897932384626433832795
+#define pi              3.1415926535897932384626433832795
 #define null            NULL
 #define endl            '\n'
-#define imi             INT_MIN
-#define imx             INT_MAX
-#define ff              first
-#define ss              second
-#define py              {cout << "YES" << endl; return;}
-#define pn              {cout << "NO" << endl; return;}
 
 
 map<long, long> F; long fib(long n) {  if (F.count(n)) return F[n]; long k =n/2; if(n%2==0){return F[n]=(fib(k)*fib(k)+fib(k-1)*fib(k-1)) %mod;} else{return F[n] = (fib(k) * fib(k + 1) + fib(k - 1) * fib(k)) % mod;}} // fibonacci log(n)  fib(n)
@@ -57,48 +39,37 @@ int factorial(int n, int p) { int cnt=1; for(int i=1; i<=n; i++) { cnt*=i; cnt%=
 int isPalindrome(string s) { for(int i=0; i<(int)s.size(); i++) { if(s[i]!=s[s.size()-i-1]) return 0; } return 1; } // isPalindrome(s) log(n)
 int lcm(int a, int b) { return (a/__gcd(a,b))*b; } // lcm(a,b) log(n)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 void C_R_7()
 {
-  int n;
-    cin >> n;
-    vi v(n);
-    jes(i, 0, n - 1) cin >> v[i];
-
-    auto calculate_difference = [&](int k) {
-        int mini = LONG_LONG_MAX, maxi = LONG_LONG_MIN;
-        int g = 0, c = 0;
-
-        jes(j, 0, n - 1)
-        {
-            g += v[j];
-            c++;
-            if (c == k)
-            {
-                mini = min(mini, g);
-                maxi = max(maxi, g);
-                g = 0;
-                c = 0;
-            }
-        }
-
-        return maxi - mini;
-    };
-
-    int siu = *max_element(be(v)) - *min_element(be(v));
-    jes(i, 2, n - 1)
-    {
-        if (n % i == 0)
-        {
-            int h = calculate_difference(i);
-            siu = max(siu, h);
-        }
-    }
-
-    cout << siu << endl;
-
+    
 }
 
 //----Coding bahut ho gya ab samay aya hai gf banane ka-----
+
+
+
+
+
+
+
+
+
+
+
 
 signed main()
 {
