@@ -63,6 +63,25 @@ int lcm(int a,int b) {return (a/__gcd(a,b))*b;} // lcm(a,b) log(n)
 
 void C_R_7()
 {
+    int n; cin>>n;
+    vi v(n);
+    for(int i = 0 ; i < n ; i++){
+        cin>>v[i];
+    }
+    unordered_map<int,int> mp;
+    for(int i = 0 ; i < n ; i++){
+        mp[v[i]]++;
+    }
+    vi b;
+    for(auto i : m){
+        if(i.ss==1){
+            b.pb(i.ff);
+        }
+    }
+    int m = b.size();
+    if(n == m) {
+        cout<<*max_element(be(v))<<endl;
+    }
     
 }
 

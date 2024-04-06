@@ -26,10 +26,18 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 #define null            NULL
 #define endl            '\n'
 
-
+// Operator overloads
+template<typename T1, typename T2> // cin >> pair<T1, T2>
+istream& operator>>(istream &istream, pair<T1, T2> &p) { return (istream >> p.first >> p.second); }
+template<typename T> // cin >> vector<T>
+istream& operator>>(istream &istream, vector<T> &v){for (auto &it : v)cin >> it;return istream;}
+template<typename T1, typename T2> // cout << pair<T1, T2>
+ostream& operator<<(ostream &ostream, const pair<T1, T2> &p) { return (ostream << p.first << " "<< p.second); }
+template<typename T> // cout << vector<T>
+ostream& operator<<(ostream &ostream, const vector<T> &c) { for (auto &it : c) cout << it << " "; return ostream; }
 map<long, long> F; long fib(long n) {  if (F.count(n)) return F[n]; long k =n/2; if(n%2==0){return F[n]=(fib(k)*fib(k)+fib(k-1)*fib(k-1)) %mod;} else{return F[n] = (fib(k) * fib(k + 1) + fib(k - 1) * fib(k)) % mod;}} // fibonacci log(n)  fib(n)
 int sfd(int n) { int sum = 0; while (n) { sum += n % 10; n /= 10; } return sum; } // sum of digits sfd(n)
-vi factors(int n) { vi v; while (n % 2 == 0) { v.pb(2); n /= 2; } for (int i = 3; i < sqrt(n); i += 2) { while (n % i == 0) { v.pb(i); n /= i; } } if (n > 2) v.pb(n); return v; } // vector of prime factors   factors(n)
+// vi factors(int n) { vi v; while (n % 2 == 0) { v.pb(2); n /= 2; } for (int i = 3; i <= sqrt(n); i += 2) { while (n % i == 0) { v.pb(i); n /= i; } } if (n > 2) v.pb(n); return v; } // vector of prime factors   factors(n)
 unsigned int power(int x, int y, int p) { unsigned int s=1; x=x%p; while(y>0) { if(y&1) s=(s*x)%p; y=y>>1; x=(x*x)%p; } return s%p; } //power(a,b,c)log(n) 
 bool isPrime(int n) { if (n <= 1) return false; if(n<=3) return true; if(n%2==0||n%3==0) return false; for(int i=5;i*i<=n;i+=6) { if(n%i==0||n%(i+2)==0) return false; } return true; } // isPrime
 vi prePrime(int n) { vi v(n,true);; for (int i = 2; i*i <=n ; ++i) { for (int j = i*i; j <=n ; j+=i) { v[j] = false; } } return v; } // vector of prime numbers less than n  prePrime(n
@@ -38,6 +46,29 @@ int ncr(int n, int r, int p) { if(n<0 || r>n) return 0; else if(r==0 || r==n) re
 int factorial(int n, int p) { int cnt=1; for(int i=1; i<=n; i++) { cnt*=i; cnt%=p; } return cnt%mod; }  // factorial(n,p) log(n)
 int isPalindrome(string s) { for(int i=0; i<(int)s.size(); i++) { if(s[i]!=s[s.size()-i-1]) return 0; } return 1; } // isPalindrome(s) log(n)
 int lcm(int a, int b) { return (a/__gcd(a,b))*b; } // lcm(a,b) log(n)
+bool isPowerOfTwo(int n){if(n==0)return false;return (ceil(log2(n)) == floor(log2(n)));}
+bool isPerfectSquare(int x){if (x >= 0) {int sr = sqrt(x);return (sr * sr == x);}return false;}
+
+
+
+void factors(vector<int> &v, int n)
+{
+    for (int i = 1; i * i <= n; i++)
+    {
+        if (n % i == 0)
+        {
+            if (i * i == n)
+            {
+                v.push_back(i);
+            }
+            else
+            {
+                v.push_back(i);
+                v.push_back(n / i);
+            }
+        }
+    }
+}
 
 
 
@@ -46,46 +77,42 @@ int lcm(int a, int b) { return (a/__gcd(a,b))*b; } // lcm(a,b) log(n)
 
 
 
-
-
-
-
-int M = 1e9+7;
 
 
 void C_R_7()
 {
-    int n,k; cin>>n>>k;
-    vi v(n);
-    int sum=0;
-    for(auto &i : v){
-        cin>>i;
-        sum+=i;
-        sum%=M;
-    }
-    int pre = 0 , dmax = 0;
-
-    for(auto &i : v){
-        const int curMax = max(i, i + pre);
-        dmax = max(dmax, curMax);
-        pre = curMax;
-    }
-
-    int ans = sum;
-    if(ans<0) ans+=M;
-
-    int addnext = dmax%M;
-    if(addnext<0) addnext+=M;
-
-    for(int i = 1 ; i<=k ; i++){
-
-        ans+=addnext;
-        ans%=M;
-
-        addnext*=2;
-        addnext%=M;
-    }
-    cout<<ans<<endl;
+        int n, x;
+        cin >> n >> x;
+        set<int> s;
+        int a = n - x;
+        
+                vi v;
+        factors(v, a);
+        for(auto &i:v)
+        {
+            if (i % 2 == 0)
+            {
+                s.insert((i + 2) / 2);
+            }
+        }
+        a = n + x - 2;
+        
+        vi v1;
+        factors(v1, a);
+        for(auto &i:v1)
+        {
+            if (i % 2 == 0)
+                s.insert((i + 2) / 2);
+        }
+        int count = 0;
+        for(auto &i:s)
+        {
+            if (i >= x)
+            {
+                count++;
+            }
+        }
+        cout << count << "\n";
 }
 
 //----Coding bahut ho gya ab samay aya hai gf banane ka-----

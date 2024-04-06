@@ -38,54 +38,80 @@ int ncr(int n, int r, int p) { if(n<0 || r>n) return 0; else if(r==0 || r==n) re
 int factorial(int n, int p) { int cnt=1; for(int i=1; i<=n; i++) { cnt*=i; cnt%=p; } return cnt%mod; }  // factorial(n,p) log(n)
 int isPalindrome(string s) { for(int i=0; i<(int)s.size(); i++) { if(s[i]!=s[s.size()-i-1]) return 0; } return 1; } // isPalindrome(s) log(n)
 int lcm(int a, int b) { return (a/__gcd(a,b))*b; } // lcm(a,b) log(n)
+bool isPowerOfTwo(int n){if(n==0)return false;return (ceil(log2(n)) == floor(log2(n)));}
+bool isPerfectSquare(int x){if (x >= 0) {int sr = sqrt(x);return (sr * sr == x);}return false;}
+
+
+// Operator overloads
+template<typename T1, typename T2> // cin >> pair<T1, T2>
+istream& operator>>(istream &istream, pair<T1, T2> &p) { return (istream >> p.first >> p.second); }
+template<typename T> // cin >> vector<T>
+istream& operator>>(istream &istream, vector<T> &v){for (auto &it : v)cin >> it;return istream;}
+template<typename T1, typename T2> // cout << pair<T1, T2>
+ostream& operator<<(ostream &ostream, const pair<T1, T2> &p) { return (ostream << p.first << " " << p.second); }
+template<typename T> // cout << vector<T>
+ostream& operator<<(ostream &ostream, const vector<T> &c) { for (auto &it : c) cout << it << " "; return ostream; }
 
 
 
-
-
-
-
-
-
-
-
-
-int M = 1e9+7;
 
 
 void C_R_7()
 {
-    int n,k; cin>>n>>k;
-    vi v(n);
-    int sum=0;
-    for(auto &i : v){
-        cin>>i;
-        sum+=i;
-        sum%=M;
-    }
-    int pre = 0 , dmax = 0;
-
-    for(auto &i : v){
-        const int curMax = max(i, i + pre);
-        dmax = max(dmax, curMax);
-        pre = curMax;
+    int n,k;
+    cin>>n>>k;
+    vi a(n), b(n);
+    cin>>a>>b;
+    for(int i = 0 ; i < n ; i++){
+        a.pb(a[i]);
     }
 
-    int ans = sum;
-    if(ans<0) ans+=M;
-
-    int addnext = dmax%M;
-    if(addnext<0) addnext+=M;
-
-    for(int i = 1 ; i<=k ; i++){
-
-        ans+=addnext;
-        ans%=M;
-
-        addnext*=2;
-        addnext%=M;
+    unordered_map<int,int> mp;
+    vi ans1,ans2;
+    int k1=2*k;
+    int k2=2*k;
+    for(int i = 0 ;  i < n ; i++){
+        mp[a[i]]++;
     }
-    cout<<ans<<endl;
+    for(int i = 1 ; i <=n ; i++){
+        if(mp[i]==1 && k1>0){
+            ans1.pb(i);
+            ans2.pb(i);
+            k1--;
+            k2--;
+        }
+    }
+    if(ans1.size()%2!=0){
+        k1++;
+        k2++;
+        ans1.pop_back();
+        ans2.pop_back();
+    }
+    for(int i = 1 ; i<= n ; i++){
+        if(mp[i]==2 && k1>0){
+            k1-=2;
+            ans1.pb(i);
+            ans1.pb(i);
+        }
+    }
+    for(int i =1 ; i <= n ; i++){
+        if(mp[i]==0 && k2>0){
+            k2-=2;
+            ans2.pb(i);
+            ans2.pb(i);
+        }
+    }
+
+    for(auto i : ans1) {
+        cout<<i<<" ";
+    }
+    cout<<endl;
+    for(auto i : ans2){
+        cout<<i<<" ";
+    }
+
+    cout<<endl;
+
 }
 
 //----Coding bahut ho gya ab samay aya hai gf banane ka-----

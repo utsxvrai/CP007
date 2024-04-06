@@ -50,42 +50,22 @@ int lcm(int a, int b) { return (a/__gcd(a,b))*b; } // lcm(a,b) log(n)
 
 
 
-int M = 1e9+7;
+
 
 
 void C_R_7()
 {
-    int n,k; cin>>n>>k;
-    vi v(n);
-    int sum=0;
-    for(auto &i : v){
-        cin>>i;
-        sum+=i;
-        sum%=M;
+    int n,k;
+    cin>>n>>k;
+    int m = n*(n-1)/2;
+    if(k==0 || (k<n-1 && n!=2)) {
+        cout<<n<<endl;
+        return;
     }
-    int pre = 0 , dmax = 0;
-
-    for(auto &i : v){
-        const int curMax = max(i, i + pre);
-        dmax = max(dmax, curMax);
-        pre = curMax;
+    if(k>=n-1 || m==k) {
+        cout<<1<<endl;
+        return;
     }
-
-    int ans = sum;
-    if(ans<0) ans+=M;
-
-    int addnext = dmax%M;
-    if(addnext<0) addnext+=M;
-
-    for(int i = 1 ; i<=k ; i++){
-
-        ans+=addnext;
-        ans%=M;
-
-        addnext*=2;
-        addnext%=M;
-    }
-    cout<<ans<<endl;
 }
 
 //----Coding bahut ho gya ab samay aya hai gf banane ka-----

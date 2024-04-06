@@ -26,7 +26,17 @@ typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_
 #define null            NULL
 #define endl            '\n'
 
-
+// Operator overloads
+template<typename T1, typename T2> // cin >> pair<T1, T2>
+istream& operator>>(istream &istream, pair<T1, T2> &p) { return (istream >> p.first >> p.second); }
+template<typename T> // cin >> vector<T>
+istream& operator>>(istream &istream, vector<T> &v){for (auto &it : v)cin >> it;return istream;}
+template<typename T1, typename T2> // cout << pair<T1, T2>
+ostream& operator<<(ostream &ostream, const pair<T1, T2> &p) { return (ostream << p.first << " "
+ 
+ << p.second); }
+template<typename T> // cout << vector<T>
+ostream& operator<<(ostream &ostream, const vector<T> &c) { for (auto &it : c) cout << it << " "; return ostream; }
 map<long, long> F; long fib(long n) {  if (F.count(n)) return F[n]; long k =n/2; if(n%2==0){return F[n]=(fib(k)*fib(k)+fib(k-1)*fib(k-1)) %mod;} else{return F[n] = (fib(k) * fib(k + 1) + fib(k - 1) * fib(k)) % mod;}} // fibonacci log(n)  fib(n)
 int sfd(int n) { int sum = 0; while (n) { sum += n % 10; n /= 10; } return sum; } // sum of digits sfd(n)
 vi factors(int n) { vi v; while (n % 2 == 0) { v.pb(2); n /= 2; } for (int i = 3; i < sqrt(n); i += 2) { while (n % i == 0) { v.pb(i); n /= i; } } if (n > 2) v.pb(n); return v; } // vector of prime factors   factors(n)
@@ -38,6 +48,8 @@ int ncr(int n, int r, int p) { if(n<0 || r>n) return 0; else if(r==0 || r==n) re
 int factorial(int n, int p) { int cnt=1; for(int i=1; i<=n; i++) { cnt*=i; cnt%=p; } return cnt%mod; }  // factorial(n,p) log(n)
 int isPalindrome(string s) { for(int i=0; i<(int)s.size(); i++) { if(s[i]!=s[s.size()-i-1]) return 0; } return 1; } // isPalindrome(s) log(n)
 int lcm(int a, int b) { return (a/__gcd(a,b))*b; } // lcm(a,b) log(n)
+bool isPowerOfTwo(int n){if(n==0)return false;return (ceil(log2(n)) == floor(log2(n)));}
+bool isPerfectSquare(int x){if (x >= 0) {int sr = sqrt(x);return (sr * sr == x);}return false;}
 
 
 
@@ -50,42 +62,51 @@ int lcm(int a, int b) { return (a/__gcd(a,b))*b; } // lcm(a,b) log(n)
 
 
 
-int M = 1e9+7;
 
 
 void C_R_7()
 {
-    int n,k; cin>>n>>k;
+    taken;
     vi v(n);
-    int sum=0;
-    for(auto &i : v){
-        cin>>i;
-        sum+=i;
-        sum%=M;
+    cin>>v;
+    int f = v[0];
+    int l= v[n-1];
+    int i,j;
+    int left(0), right(0);
+    for(i = 0; i < n ; i++){
+        if(f==v[i]){
+            left++;
+        }
+        else{
+            break;
+        }
     }
-    int pre = 0 , dmax = 0;
-
-    for(auto &i : v){
-        const int curMax = max(i, i + pre);
-        dmax = max(dmax, curMax);
-        pre = curMax;
+    for(j = n-1 ; j >= 0 ; j--){
+        if(l==v[j]){
+            right++;
+        }
+        else{
+            break;  
+        }
     }
-
-    int ans = sum;
-    if(ans<0) ans+=M;
-
-    int addnext = dmax%M;
-    if(addnext<0) addnext+=M;
-
-    for(int i = 1 ; i<=k ; i++){
-
-        ans+=addnext;
-        ans%=M;
-
-        addnext*=2;
-        addnext%=M;
+    int ans(0);
+    if(f==l){
+        ans = j-i+1;
     }
+    else{
+        if(left> right){
+            j = n-1;
+        }
+        else {
+            i = 0;
+        }
+        ans = j-i +1;
+
+    }
+    if(ans<0) ans = 0;
     cout<<ans<<endl;
+    
+    
 }
 
 //----Coding bahut ho gya ab samay aya hai gf banane ka-----
