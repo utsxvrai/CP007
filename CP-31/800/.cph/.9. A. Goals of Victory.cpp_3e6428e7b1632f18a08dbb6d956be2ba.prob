@@ -1,0 +1,1 @@
+{"name":"Local: 9","url":"/home/cr7bit/Cris/CodeForces/CP-31/800/9. A. Goals of Victory.cpp","tests":[{"id":1724382081308,"input":"2\n4\n3 -4 5\n11\n-30 12 -57 7 0 -81 -68 41 -89 0\n","output":"-4\n265\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/cr7bit/Cris/CodeForces/CP-31/800/9. A. Goals of Victory.cpp","group":"local","local":true}
