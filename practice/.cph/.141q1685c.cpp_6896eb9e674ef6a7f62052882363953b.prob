@@ -1,1 +1,0 @@
-{"name":"Local: 141q1685c","url":"/home/cr7bit/Cris/CodeForces/practice/141q1685c.cpp","tests":[{"id":1712664914955,"input":"4\n4\n2 5 6 8\n3\n1 1 1\n5\n4 1 7 0 8\n4\n5 9 17 5","output":"YES\nYES\nNO\nYES"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/cr7bit/Cris/CodeForces/practice/141q1685c.cpp","group":"local","local":true}

@@ -1,1 +1,0 @@
-{"name":"Local: 102q1475a","url":"c:\\Users\\acer\\Desktop\\CodeForces\\practice\\102q1475a.cpp","tests":[{"id":1705547806013,"input":"6\n2\n3\n4\n5\n998244353\n1099511627776\n","output":"NO\nYES\nNO\nYES\nYES\nNO\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\acer\\Desktop\\CodeForces\\practice\\102q1475a.cpp","group":"local","local":true}
